@@ -875,7 +875,7 @@ function Features() {
     { icon: "layers", title: "Modular anpassbar", desc: "Erweiterbar auf bis zu 5 Schubladen – vorausgesetzt, die Rückseite des Korpus ist gut zugänglich." },
     { icon: "tool", title: "DIY-freundlich", desc: "Nachrüstung ohne Fachbetrieb möglich." },
     { icon: "repeat", title: "Wartungsarm", desc: "Mechanisch simpel. Kein Service nötig." },
-    { icon: "print", title: "3D-druckbar", desc: "Alle Teile in PETG gedruckt. STL-Dateien optional gegen Aufpreis erhältlich – für alle mit eigenem Drucker." },
+    { icon: "print", title: "3D-druckbar", desc: "Wahlweise fertig gedrucktes Kit oder STL-Dateien zum Selbstdrucken mit eigenem Drucker." },
     { icon: "shield", title: "Vibrationsfest", desc: "Speziell für Camper-Vibrationen optimiert." },
     { icon: "thermometer", title: "Temperaturbeständig", desc: "−30 °C bis +70 °C. Sommer und Winter." },
     { icon: "package", title: "Nachrüstbar", desc: "Einfache Montage in bestehende Aufbauten." },
@@ -987,7 +987,7 @@ function TechSpecs() {
     ["Schraubenstandard", "M3 / M4"],
     ["Farbe", "Schwarz / RAL 9005"],
     ["Anwendung", "Camper, Kastenwagen, Vans"],
-    ["Lieferformat", "DIY-Kit (kundenspezifisch) · STL-Dateien optional"],
+    ["Lieferformat", "Fertiges Kit oder STL-Dateien zum Selbstdrucken (kundenspezifisch)"],
   ];
 
   return (
@@ -1151,7 +1151,7 @@ function Installation() {
                 </div>
               ))}
               <p style={{ fontSize: 11, color: "#555", marginTop: 16, lineHeight: 1.6 }}>
-                * Elektrische Komponenten (Zentralverriegelungsset inkl. Stellmotor & Steuergerät, Schalter, Kabel, Sicherung) sind nicht enthalten. Empfehlungen findest du in der Montageanleitung. STL-Dateien der gedruckten Teile sind optional gegen Aufpreis erhältlich.
+                * Elektrische Komponenten (Zentralverriegelungsset inkl. Stellmotor & Steuergerät, Schalter, Kabel, Sicherung) sind nicht enthalten. Empfehlungen findest du in der Montageanleitung. Alternativ zum fertigen Kit gibt es die STL-Dateien zum Selbstdrucken.
               </p>
             </div>
           </div>
@@ -1481,7 +1481,7 @@ function FAQ() {
   const faqs = [
     ["Passt das System in meinen Camper?", "Das System ist für übereinander gestapelte Schubladen in Campern ausgelegt. Voraussetzungen: mindestens 3 cm Platz hinter den Schubladenrücken (für den Stellmotor), ein 12V-Bordnetz, und die Rückseite des Schubladenkorpus muss erreichbar sein. Ist die Rückseite schlecht zugänglich, bitte vor der Bestellung prüfen."],
     ["Benötige ich elektrische Kenntnisse?", "Grundkenntnisse der 12V-Fahrzeugelektrik sind hilfreich. Im Lieferumfang ist eine kleine Verkabelungshilfe enthalten, die zeigt, wie das System im eigenen Aufbau angeschlossen wurde. Absicherung, Leitungsführung und elektrischer Anschluss liegen in der Verantwortung des Kunden."],
-    ["Kann ich das System selbst drucken?", "Es gibt drei Varianten: fertig gedrucktes Set, fertig gedrucktes Set inklusive STL-Dateien, oder nur die STL-Dateien zum vollständigen Selbstdrucken. Wichtig beim Selbstdruck: Nur PETG verwenden – PLA ist nicht temperaturbeständig genug."],
+    ["Kann ich das System selbst drucken?", "Es gibt zwei Varianten: das fertig gedruckte Kit, versandfertig und einbaubereit – oder nur die STL-Dateien zum vollständigen Selbstdrucken mit eigenem Drucker. Wichtig beim Selbstdruck: Nur PETG verwenden – PLA ist nicht temperaturbeständig genug."],
     ["Welche Schubladen sind kompatibel?", "Das System funktioniert mit übereinander gestapelten Schubladen. Voraussetzung ist, dass in den Schubladenrücken ein Ausschnitt (ca. 45 × 30 mm) gesetzt werden kann – die mitgelieferte Schablone erleichtert das Anzeichnen. Schubladen, die nebeneinander liegen, sind nicht kompatibel."],
     ["Ist das System vibrationsfest?", "Ja. Das System wurde speziell für den Einsatz in fahrenden Fahrzeugen entwickelt. Die PETG-Schiene und die mittige U-Führung sorgen für Stabilität. Die Schrauben lockern sich im Betrieb nicht, da sie direkt in PETG eingeschraubt werden."],
     ["Warum PETG statt PLA?", "PLA erweicht bereits ab ca. 60°C – ein realer Wert in einem Fahrzeug im Sommer. PETG bleibt bis 70°C formstabil, ist schlagzäher, UV-beständiger und für mechanische Dauerbelastung geeignet."],
