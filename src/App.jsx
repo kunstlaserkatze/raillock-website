@@ -350,7 +350,7 @@ function Nav() {
           <button key={l} className="nav-link" onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}>{l}</button>
         ))}
       </div>
-      <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+      <a href="https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
         <button className="btn-primary" style={{ padding: "10px 24px", fontSize: 13 }}>Jetzt bestellen</button>
       </a>
     </nav>
@@ -1400,7 +1400,7 @@ function Shop() {
             <div className="font-mono" style={{ fontSize: 10, letterSpacing: "0.15em", color: ACCENT, marginBottom: 12 }}>OPTION A – PHYSISCHES KIT</div>
             <div className="font-display" style={{ fontSize: 22, fontWeight: 800, textTransform: "uppercase", marginBottom: 8 }}>Fertiges Kit</div>
             <p style={{ fontSize: 13, color: "#8A8A8A", lineHeight: 1.7, marginBottom: 20 }}>Kundenspezifisch gedruckt und versandfertig. Alles dabei – einfach einbauen.</p>
-            <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+            <a href="https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
               <button className="btn-primary" style={{ width: "100%" }}>Zum Etsy-Shop →</button>
             </a>
             <p style={{ fontSize: 11, color: "#555", marginTop: 12 }}>Maßangabe erforderlich · individuelle Fertigung</p>
@@ -1412,7 +1412,7 @@ function Shop() {
             <div style={{ fontSize: 12, color: "#666", marginBottom: 20, padding: "10px 14px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}>
               <span style={{ color: ACCENT }}>~30 Std.</span> Druckzeit pro Schiene inkl. Zubehör · Material: PETG
             </div>
-            <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+            <a href="https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
               <button className="btn-ghost" style={{ width: "100%" }}>STL-Dateien bestellen →</button>
             </a>
             <p style={{ fontSize: 11, color: "#555", marginTop: 12 }}>Maßangabe erforderlich · nur Druckdaten, kein physisches Kit</p>
@@ -1535,10 +1535,10 @@ function FinalCTA() {
           Schluss mit aufspringenden Schubladen. Zeit für das, was wirklich zählt – die Reise.
         </p>
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+          <a href="https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
             <button className="btn-primary" style={{ padding: "20px 56px", fontSize: 18 }}>Jetzt sichern</button>
           </a>
-          <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+          <a href="https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
             <button className="btn-ghost" style={{ padding: "20px 40px" }}>Zum Etsy-Shop</button>
           </a>
         </div>
