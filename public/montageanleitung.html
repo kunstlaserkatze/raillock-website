@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailLock – Montageanleitung</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f0f0;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 60px 64px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 32px;
+      border-bottom: 3px solid #E8700A;
+      margin-bottom: 48px;
+    }
+
+    .logo { font-size: 28px; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+    .logo span { color: #E8700A; }
+    .doc-info { text-align: right; font-size: 12px; color: #888; line-height: 1.9; }
+
+    h1 { font-size: 34px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 6px; }
+    h2 {
+      font-size: 18px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.04em; margin: 52px 0 16px;
+      padding-bottom: 10px; border-bottom: 2px solid #E8700A;
+    }
+    h3 { font-size: 15px; font-weight: 700; margin: 28px 0 8px; color: #222; }
+
+    p { font-size: 14px; color: #444; margin-bottom: 12px; }
+
+    ul, ol { padding-left: 22px; margin-bottom: 16px; }
+    li { font-size: 14px; color: #444; margin-bottom: 7px; }
+
+    .step {
+      display: flex;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid #ececec;
+    }
+    .step:last-child { border-bottom: none; }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      background: #E8700A;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 17px;
+      border-radius: 2px;
+    }
+
+    .step-content h3 { margin: 0 0 7px; font-size: 15px; font-weight: 700; color: #111; }
+    .step-content p { margin: 0 0 6px; font-size: 14px; color: #555; }
+    .step-content p:last-child { margin-bottom: 0; }
+
+    .warning {
+      background: #fff7f0;
+      border-left: 4px solid #E8700A;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: #4a2e00;
+    }
+    .warning strong {
+      display: block; margin-bottom: 5px;
+      text-transform: uppercase; font-size: 10px;
+      letter-spacing: 0.12em; color: #E8700A;
+    }
+
+    .info {
+      background: #f0f8f8;
+      border-left: 4px solid #1A7A7A;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: #0a3535;
+    }
+    .info strong {
+      display: block; margin-bottom: 5px;
+      text-transform: uppercase; font-size: 10px;
+      letter-spacing: 0.12em; color: #1A7A7A;
+    }
+
+    .disclaimer {
+      background: #fff0f0;
+      border: 2px solid #c0392b;
+      padding: 20px 24px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: #5a0a0a;
+    }
+    .disclaimer strong {
+      display: block; margin-bottom: 8px;
+      text-transform: uppercase; font-size: 11px;
+      letter-spacing: 0.1em; color: #c0392b;
+    }
+
+    .measure-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+    .measure-table th {
+      background: #1a1a1a; color: #fff;
+      padding: 10px 14px; text-align: left;
+      font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .measure-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid #eee; }
+    .measure-table tr:nth-child(even) td { background: #fafafa; }
+
+    .checklist { list-style: none; padding: 0; margin: 12px 0; }
+    .checklist li {
+      display: flex; gap: 12px;
+      padding: 9px 0; font-size: 14px; color: #444;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .checklist li::before { content: "☐"; font-size: 16px; color: #E8700A; flex-shrink: 0; margin-top: 1px; }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 8px;
+      margin: 14px 0 4px;
+    }
+    .tool-item {
+      background: #f7f7f7;
+      border: 1px solid #e8e8e8;
+      padding: 10px 14px;
+      font-size: 13px; color: #444;
+    }
+
+    .trouble-block {
+      padding: 18px 20px;
+      border: 1px solid #e8e8e8;
+      margin-bottom: 10px;
+      background: #fafafa;
+    }
+    .trouble-block h3 {
+      margin: 0 0 8px;
+      font-size: 14px; font-weight: 700;
+      color: #E8700A; text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .trouble-block p { margin: 0; font-size: 14px; color: #555; }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid #e8e8e8;
+      font-size: 11px;
+      color: #bbb;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { margin: 0; padding: 40px; box-shadow: none; }
+      .step { page-break-inside: avoid; }
+      .trouble-block { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="logo">RAIL<span>LOCK</span></div>
+      <h1>Montageanleitung</h1>
+      <p style="font-size:13px;color:#888;margin:4px 0 0;">Zentrale Schubladensicherung für Camper</p>
+    </div>
+    <div class="doc-info">
+      Version 1.0 · Stand 2026<br />
+      Bestellungen:<br />
+      etsy.com/de/shop/KunstLaserkatze
+    </div>
+  </header>
+
+
+  <!-- HAFTUNGSAUSSCHLUSS ELEKTRIK -->
+  <div class="disclaimer">
+    <strong>⚠ Haftungsausschluss – Elektrische Installation</strong>
+    Die elektrische Installation des Systems (Anschluss von Stellmotor, Steuergerät, Schalter, Kabel und Sicherung) liegt <strong>vollständig in der Verantwortung des Kunden</strong>. Der Anbieter übernimmt keinerlei Haftung für Schäden, die durch unsachgemäße Verkabelung, fehlende oder falsch dimensionierte Absicherung, fehlerhafte Leitungsführung oder unsachgemäßen Anschluss entstehen. Im Zweifelsfall eine Fachwerkstatt oder einen Elektriker hinzuziehen.
+  </div>
+
+
+  <!-- ZIELGRUPPE -->
+  <h2>Zielgruppe &amp; Zeitaufwand</h2>
+  <p>Diese Anleitung richtet sich an Camperausbauer und DIY-Anwender mit grundlegenden handwerklichen Kenntnissen.</p>
+  <p>Erfahrene Camperausbauer rechnen mit <strong>ca. 2–3 Stunden</strong> Montagezeit. Der tatsächliche Aufwand hängt von der Zugänglichkeit des Schubladenkorpus, den vorhandenen Werkzeugen und der persönlichen Erfahrung ab.</p>
+
+  <div class="info">
+    <strong>Hinweis zur Zugänglichkeit</strong>
+    Das System wurde primär an Schubladenkorpussen getestet, die von vorne und hinten gut erreichbar sind – idealerweise am Ausgang des Campers. Ist die Rückseite schwer zugänglich, wird die Montage deutlich aufwendiger. Bitte vor der Bestellung prüfen.
+  </div>
+
+
+  <!-- VORAUSSETZUNGEN -->
+  <h2>Voraussetzungen vor dem Einbau</h2>
+  <ul>
+    <li><strong>Stapelschubladen:</strong> Das System ist für übereinander gestapelte Schubladen ausgelegt.</li>
+    <li><strong>Mindesttiefe hinter den Schubladen:</strong> Zwischen Schubladenrücken und Rückwand des Korpus müssen mindestens <strong>3 cm</strong> Platz vorhanden sein – der Stellmotor benötigt diesen Raum.</li>
+    <li><strong>12V-Bordnetz:</strong> Ein 12V-Anschluss muss in der Nähe vorhanden oder verlegbar sein.</li>
+    <li><strong>Erreichbare Rückseite:</strong> Für Montage und spätere Notfallbedienung muss die Rückseite des Schubladenkorpus zugänglich sein.</li>
+  </ul>
+
+  <div class="warning">
+    <strong>Manuelle Notöffnung</strong>
+    Im Falle eines Stromausfalls muss die Verriegelungsschiene manuell nach oben geschoben werden können. Der mitgelieferte <strong>manuelle Schieber</strong> ermöglicht dies, sofern die Rückseite des Schubladenkorpus erreichbar ist. Ist kein beidseitiger Zugang möglich, bitte vor dem Einbau individuell klären, wie die Schiene im Notfall manuell geöffnet werden kann.
+  </div>
+
+
+  <!-- WERKZEUG -->
+  <h2>Benötigte Werkzeuge</h2>
+  <div class="tools-grid">
+    <div class="tool-item">Schraubendreher</div>
+    <div class="tool-item">Akkuschrauber</div>
+    <div class="tool-item">Bohrer</div>
+    <div class="tool-item">Stichsäge</div>
+    <div class="tool-item">Maßband</div>
+    <div class="tool-item">Marker oder Bleistift</div>
+    <div class="tool-item">Feile / Schleifpapier</div>
+  </div>
+  <p style="margin-top:10px;font-size:13px;color:#888;">Weitere Werkzeuge können je nach Aufbau hilfreich sein. Eine Stichsäge ist für die Ausschnitte in den Schubladenrücken besonders wichtig.</p>
+
+
+  <!-- MASSE VOR BESTELLUNG -->
+  <h2>Benötigte Maße (vor der Bestellung angeben)</h2>
+  <p>Diese Angaben bestimmen die kundenspezifischen Segmentlängen und müssen bei der Etsy-Bestellung mitgeteilt werden:</p>
+
+  <table class="measure-table">
+    <thead>
+      <tr><th>#</th><th>Messung</th><th>Dein Wert</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Anzahl der Schubladen</td><td>_______</td></tr>
+      <tr><td>2</td><td>Dicke der Schubladenrücken</td><td>_______ mm</td></tr>
+      <tr><td>3</td><td>Abstand: Boden bis Oberkante Schubladenrücken 1</td><td>_______ mm</td></tr>
+      <tr><td>4</td><td>Abstand: Oberkante SR 1 bis Oberkante SR 2</td><td>_______ mm</td></tr>
+      <tr><td>5</td><td>Abstand: Oberkante SR 2 bis Oberkante SR 3</td><td>_______ mm</td></tr>
+      <tr><td>6</td><td>Abstand: Oberkante SR 3 bis Oberkante SR 4</td><td>_______ mm</td></tr>
+      <tr><td>7</td><td>Abstand: Oberkante SR 4 bis Oberkante SR 5</td><td>_______ mm</td></tr>
+      <tr><td>8</td><td>Abstand: Oberkante SR 5 bis Oberkante SR 6</td><td>_______ mm</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:#999;">SR = Schubladenrücken. Nur die für den eigenen Aufbau relevanten Abstände angeben.</p>
+
+
+  <!-- LIEFERUMFANG -->
+  <h2>Lieferumfang kontrollieren</h2>
+  <p>Vor Beginn der Montage alle Teile vollständig prüfen:</p>
+  <ul class="checklist">
+    <li>Kundenspezifische Schienensegmente (PETG, nummeriert)</li>
+    <li>Halterungen (eine pro Schublade)</li>
+    <li>Stellmotor-Gehäuse</li>
+    <li>Schablone für Schubladenausschnitte</li>
+    <li>Schablone / Markierhilfe für manuellen Schieber</li>
+    <li>Manueller Schieber + Rahmen</li>
+    <li>Hakenverlängerer (mehrere; nur bei Bedarf verwenden)</li>
+    <li>Schrauben zur Segmentverbindung</li>
+    <li>3 Schrauben für das Stellmotor-Gehäuse</li>
+    <li>Gewindeschraube (Stellmotor–Schiene), Federring, Mutter</li>
+    <li>Kantenschutz (je ein Stück pro Schublade; bei Bedarf verwenden)</li>
+    <li>Montageanleitung</li>
+  </ul>
+
+  <div class="info">
+    <strong>Nummerierte Segmente</strong>
+    Die Schienensegmente sind nummeriert, damit sie nicht falsch eingebaut werden können. Die Nummerierung beim Zusammenstecken beachten.
+  </div>
+
+  <div class="warning">
+    <strong>Nicht im Lieferumfang enthalten</strong>
+    Folgende Komponenten sind <strong>nicht enthalten</strong> und müssen separat beschafft werden: Zentralverriegelungsset (inkl. Stellmotor und Steuergerät), 12V-Schalter, Kabel, Sicherung, elektrische Verbinder, Korpus-Befestigungsschrauben sowie Werkzeug. Empfehlungen für bewährte Bezugsquellen sind auf der Webseite verlinkt.
+  </div>
+
+
+  <!-- MONTAGEABLAUF -->
+  <h2>Montageablauf</h2>
+
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h3>Stellmotor einsetzen</h3>
+      <p>Den Stellmotor in das gedruckte Gehäuse einsetzen. Das Gehäuse anschließend mit den drei beigelegten Schrauben verschrauben.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h3>Schienensegmente zusammenstecken</h3>
+      <p>Die nummerierten Segmente in der richtigen Reihenfolge zusammenstecken. Dabei die Halterungen an den vorgesehenen Stellen zwischen die Segmente einstecken. Anschließend alle Segmente mit den mitgelieferten Schrauben fest verbinden.</p>
+      <p><strong>Wichtig:</strong> Die Schiene beim Zusammenstecken nicht seitlich biegen. Die Verbindungszapfen sind ausschließlich für die senkrechte Auf-und-Ab-Bewegung im Betrieb ausgelegt – seitliche Belastung während der Montage kann sie beschädigen.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h3>Stellmotor mit der Schiene verbinden</h3>
+      <p>Den Stellmotor über die mitgelieferte Gewindeschraube mit der Schiene verbinden. Von der Gegenseite mit Federring und Mutter kontern. Im ausgefahrenen Zustand des Stellmotors sollte jeder Segment-Haken auf Höhe der Oberkante der jeweiligen Schublade stehen.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h3>Arbeitsraum schaffen</h3>
+      <p>Alle Schubladen öffnen oder vollständig herausnehmen, damit hinter den Schubladenrücken genügend Platz für die Montagearbeiten vorhanden ist.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <h3>Provisorisch positionieren</h3>
+      <p>Den Stellmotor mit ein bis zwei Schrauben provisorisch am Boden befestigen. Direkt danach die oberste Halterung mit einer Schraube provisorisch fixieren. Dieser Schritt dient ausschließlich dem Anzeichnen der Ausschnitte – noch nicht endgültig verschrauben.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">6</div>
+    <div class="step-content">
+      <h3>Einbaulage prüfen</h3>
+      <p>Überprüfen, ob die Schiene in dieser Position sauber einbaubar ist und sich frei bewegen lässt. Bei Bedarf vor dem Anzeichnen nachjustieren.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">7</div>
+    <div class="step-content">
+      <h3>Ausschnitte anzeichnen</h3>
+      <p>Die mitgelieferte Schablone nacheinander auf jeden Hakenkopf aufsetzen und Schublade für Schublade den Ausschnitt mit einem Marker anzeichnen.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">8</div>
+    <div class="step-content">
+      <h3>Ausschnitte aussägen</h3>
+      <p>Die angezeichneten Ausschnitte mit einer Stichsäge aussägen. Richtwert pro Schublade: ca. <strong>45 × 30 mm</strong>. Der Ausschnitt befindet sich am Schubladenrücken und ist im eingebauten Zustand in der Regel von vorne nicht sichtbar. Anschließend die Schnittkanten mit einer Feile oder Schleifpapier entgraten.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">9</div>
+    <div class="step-content">
+      <h3>Kantenschutz anbringen (bei Bedarf)</h3>
+      <p>Den mitgelieferten Kantenschutz an den Ausschnittkanten befestigen. Der Kantenschutz ist im Lieferumfang enthalten, muss aber nicht zwingend eingebaut werden.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">10</div>
+    <div class="step-content">
+      <h3>Schubladen einsetzen und Funktion prüfen</h3>
+      <p>Die Schubladen wieder einsetzen und folgende Punkte kontrollieren: Passen die Hakenköpfe von der Höhe? Ragen die Haken korrekt in die Ausschnitte hinein? Lässt sich die Schiene frei nach oben und unten bewegen? Falls nötig, Halterungen oder Stellmotor nachjustieren.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">11</div>
+    <div class="step-content">
+      <h3>Endgültig verschrauben</h3>
+      <p>Wenn alles passt, Stellmotor und Halterungen fest anschrauben. Tipp: Zunächst pro Halterung nur eine Schraube setzen. Falls die Schiene nach dem Verkabeln leicht herunterrutscht, kann eine Halterung minimal schräg eingebaut werden, um das Absenken zu verhindern.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">12</div>
+    <div class="step-content">
+      <h3>Leichtgängigkeit kontrollieren</h3>
+      <p>Prüfen, ob sich die Schiene mühelos nach oben und unten schieben lässt. Klemmt sie, sind Halterungen oder Stellmotor wahrscheinlich nicht ganz gerade eingebaut – in diesem Fall nachjustieren.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">13</div>
+    <div class="step-content">
+      <h3>Manuellen Schieber montieren</h3>
+      <p>Den manuellen Schieber an der vorgesehenen Position anschrauben. Er ermöglicht das manuelle Öffnen der Schiene bei Stromausfall.</p>
+      <p><strong>Falls der Schubladenkorpus eine Rückwand hat:</strong> Schablone auf den manuellen Schieber aufsetzen, Rückwand von außen andrücken und dadurch die Markierung übertragen. Anschließend den Rahmen für den manuellen Schieber auf die Markierung setzen, den Ausschnitt mit etwas Luft anzeichnen, aussägen und den Rahmen einkleben.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">14</div>
+    <div class="step-content">
+      <h3>Elektrisch anschließen</h3>
+      <p>Den Schalter an der gewünschten Position im Fahrzeug einbauen. Schalter, Steuereinheit und Stellmotor gemäß den Vorgaben des Steuergerät-Herstellers und den Anforderungen des Fahrzeugs verkabeln. Die Schiene anschließend mehrfach betätigen und auf einwandfreie Funktion prüfen.</p>
+      <div class="disclaimer" style="margin-top:12px;">
+        <strong>Haftungsausschluss</strong>
+        Die elektrische Installation liegt vollständig in der Verantwortung des Kunden. Der Anbieter übernimmt keinerlei Haftung für Schäden durch unsachgemäßen Anschluss, fehlende Absicherung oder fehlerhafte Leitungsführung.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">15</div>
+    <div class="step-content">
+      <h3>Hakenverlängerer einsetzen (bei Bedarf)</h3>
+      <p>Besteht nach dem Testlauf noch zu viel Spiel zwischen Haken und Schublade, die beigelegten Hakenverlängerer am Hakenkopf befestigen. Verlängerer hinzufügen, bis der Haken sicher und spielfrei in den Ausschnitt greift.</p>
+    </div>
+  </div>
+
+
+  <!-- FUNKTIONSTEST -->
+  <h2>Funktionstest nach der Montage</h2>
+  <ul class="checklist">
+    <li>Schalter betätigen – Schiene verriegeln</li>
+    <li>Jede Schublade einzeln nach vorne ziehen – keine darf sich öffnen lassen</li>
+    <li>Schalter erneut betätigen – Schiene entriegeln</li>
+    <li>Alle Schubladen öffnen und schließen – freie Beweglichkeit prüfen</li>
+    <li>Mehrere Schaltzyklen hintereinander wiederholen</li>
+    <li>Manuellen Schieber auf Funktion testen</li>
+  </ul>
+
+
+  <!-- FEHLERSUCHE -->
+  <h2>Fehlersuche</h2>
+
+  <div class="trouble-block">
+    <h3>Schiene lässt sich schwer oder gar nicht bewegen</h3>
+    <p>Ursache ist meistens eine nicht ganz gerade ausgerichtete Halterung oder ein schief sitzender Stellmotor. Lösung: Halterungen und Stellmotor einzeln lösen, neu ausrichten und wieder festschrauben.</p>
+  </div>
+
+  <div class="trouble-block">
+    <h3>Eine oder mehrere Schubladen verriegeln nicht</h3>
+    <p>Mögliche Ursachen: Die Hakenköpfe greifen nicht vollständig in die Ausschnitte – entweder weil die Höhenposition nicht stimmt, der Haken auf dem Schubladenrücken aufliegt, oder die Schiene ihren unteren Endpunkt nicht erreicht. Auch eine fehlerhafte Verkabelung von Stellmotor oder Schalter kann der Grund sein. Zunächst die mechanische Position prüfen, dann die Verkabelung kontrollieren.</p>
+  </div>
+
+  <div class="trouble-block">
+    <h3>Ausschnitt ist zu eng</h3>
+    <p>Bei korrekter Verwendung der mitgelieferten Schablone sollte das nicht vorkommen. Falls doch: den Ausschnitt vorsichtig mit Feile oder Stichsäge geringfügig erweitern. Danach Schiene und Halterungen erneut auf korrekte Position prüfen.</p>
+  </div>
+
+  <div class="trouble-block">
+    <h3>Stellmotor bewegt sich, aber die Schiene bleibt stehen</h3>
+    <p>Die Schiene blockiert wahrscheinlich an einer Halterung. Alle Halterungen lösen, auf Gerade ausrichten und erneut festschrauben. Auch die Stellmotorposition prüfen.</p>
+  </div>
+
+  <div class="trouble-block">
+    <h3>Ein Bauteil wurde bei der Montage beschädigt</h3>
+    <p>Alle gedruckten Teile sind einzeln austauschbar. Ersatzteile können separat über den Etsy-Shop nachbestellt werden. Bei Fragen bitte über Etsy Kontakt aufnehmen.</p>
+  </div>
+
+
+  <!-- HINWEISE -->
+  <div class="warning" style="margin-top:48px;">
+    <strong>Wichtige Hinweise zur Schiene</strong>
+    Die Schiene beim Zusammenstecken und Einbauen niemals seitlich biegen oder verdrehen. Die Verbindungszapfen sind nur für die spätere senkrechte Bewegung im Betrieb ausgelegt. Schäden durch seitliche Belastung während der Montage sind von der Produktgewährleistung ausgeschlossen. Ersatzteile können einzeln nachbestellt werden.
+  </div>
+
+  <footer>
+    <span>© 2026 RailLock – Zentrale Schubladensicherung für Camper</span>
+    <span>etsy.com/de/shop/KunstLaserkatze</span>
+  </footer>
+
+</div>
+</body>
+</html>

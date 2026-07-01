@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Webseite Schubladensicherung\\\\.claude\")",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Schubladensicherung Export\\\\Entwurf Webseite.tsx\" \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Webseite Schubladensicherung\\\\src\\\\App.jsx\")",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); cd \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Webseite Schubladensicherung\"; npm install 2>&1)",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); cd \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Webseite Schubladensicherung\"; npm approve-scripts esbuild 2>&1)",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(\\(Get-Command npm\\).Source)",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Webseite Schubladensicherung\\\\public\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Schubladensicherung Export\\\\\" | Where-Object { $_.Extension -match '\\\\.\\(jpg|jpeg|png|gif|mp4|mov|webm|svg\\)$' } | Select-Object Name, Length)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\phili\\\\OneDrive\\\\Philipp\\\\Alt\\\\Dokumente\\\\Schubladensicherung Export\\\\images\\\\\" -Recurse | Where-Object { $_.Name -match \"Video1|video1\" })",
+      "WebFetch(domain:www.etsy.com)",
+      "Bash(node \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/convert8.js\")",
+      "Bash(node \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/convert9.js\")",
+      "Bash(node \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/convert10.js\")",
+      "Bash(node \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/convert11.js\")",
+      "Bash(node \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/convert12.js\")",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"crop=1280:1600:0:500,scale=720:900\" -c:v libx264 -crf 26 -preset slow -movflags +faststart \"public/videos/schieber_cropped.mp4\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"crop=1280:1600:0:650,scale=720:900\" -c:v libx264 -crf 26 -preset slow -movflags +faststart \"public/videos/schieber_cropped.mp4\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"select=eq\\(n\\\\,30\\)\" -vframes 1 \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/schieber_frame.jpg\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"crop=1057:1321:12:88,scale=720:900\" -c:v libx264 -crf 26 -preset slow -movflags +faststart \"public/videos/schieber_cropped.mp4\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"select=eq\\(n\\\\,30\\)\" -vframes 1 \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/frame_stable.png\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"crop=1057:1321:48:85,scale=720:900\" -c:v libx264 -crf 26 -preset slow -movflags +faststart \"public/videos/schieber_cropped.mp4\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_cropped.mp4\" -vf \"select=eq\\(n\\\\,30\\)\" -vframes 1 \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/frame_cropped.png\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"select=eq\\(n\\\\,90\\)\" -vframes 1 \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/frame90.png\" -y)",
+      "Bash(\"node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"public/videos/schieber_stable.mp4\" -vf \"crop=1114:1392:0:44,scale=720:900\" -c:v libx264 -crf 26 -preset slow -movflags +faststart \"public/videos/schieber_cropped.mp4\" -y)",
+      "Bash(find \"/c/Users/phili/OneDrive\" -name \"*.mp4\" 2>/dev/null | head -30)",
+      "Bash(\"C:/Users/phili/OneDrive/Philipp/Alt/Dokumente/Webseite Schubladensicherung/node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"C:/Users/phili/OneDrive/Philipp/Alt/Dokumente/Schubladensicherung Export/images/29.06.2026/manuellerSchieber, Notentriegelung.mp4\")",
+      "Bash(\"C:/Users/phili/OneDrive/Philipp/Alt/Dokumente/Webseite Schubladensicherung/node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\" -i \"C:/Users/phili/OneDrive/Philipp/Alt/Dokumente/Schubladensicherung Export/images/29.06.2026/manuellerSchieber, Notentriegelung.mp4\" -vf \"select=eq\\(n\\\\,30\\)\" -vframes 1 \"C:/Users/phili/AppData/Local/Temp/claude/C--Users-phili-OneDrive-Philipp-Alt-Dokumente-Webseite-Schubladensicherung/41c69a60-e9db-462e-ab3c-70662e836c2e/scratchpad/new_f30.png\" -y)"
+    ]
+  }
+}
