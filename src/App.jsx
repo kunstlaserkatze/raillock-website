@@ -728,11 +728,6 @@ function RailLockSVG({ locked = true }) {
           <stop offset="0%" stopColor="#F07818" />
           <stop offset="100%" stopColor="#FFB35C" />
         </linearGradient>
-        <radialGradient id="svBezel" cx="35%" cy="30%" r="75%">
-          <stop offset="0%" stopColor="#8A8D90" />
-          <stop offset="45%" stopColor="#4A4C4F" />
-          <stop offset="100%" stopColor="#232426" />
-        </radialGradient>
         <filter id="svGlow" x="-200%" y="-200%" width="500%" height="500%">
           <feGaussianBlur stdDeviation="2.4" result="b" />
           <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
@@ -850,15 +845,12 @@ function RailLockSVG({ locked = true }) {
         </circle>
       </g>
 
-      {/* 12V-Schalter — runder Taster */}
-      <text x="262" y="416" textAnchor="middle" fill="rgba(240,120,24,0.45)" fontSize="7" fontFamily="monospace" letterSpacing="0.3">SCHALTER</text>
-      <circle cx="262" cy="444" r="17" fill="url(#svBezel)" stroke="rgba(0,0,0,0.35)" strokeWidth="1" />
-      <circle cx="262" cy="444" r="12.5"
-        fill={locked ? "url(#svHook)" : "#0C0B0A"}
-        filter={locked ? "url(#svGlow)" : undefined}
-        style={{ transition: "fill 0.25s" }} />
-      <circle cx="262" cy="444" r="12.5" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="0.5" />
-      <circle cx="257" cy="439" r="4" fill="rgba(255,255,255,0.22)" />
+      {/* 12V-Schalter */}
+      <text x="262" y="423" textAnchor="middle" fill="rgba(240,120,24,0.45)" fontSize="7" fontFamily="monospace" letterSpacing="0.3">SCHALTER</text>
+      <rect x="238" y="428" width="48" height="32" rx="7" fill="#1C1916" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+      <rect x="245" y={locked ? 433 : 445} width="34" height="10" rx="4"
+        fill={locked ? "url(#svHook)" : "#35312C"}
+        style={{ transition: "y 0.25s ease, fill 0.25s" }} />
 
       <rect x="9" y="9" width="95" height="18" rx="4" fill={locked ? "rgba(240,120,24,0.1)" : "rgba(255,255,255,0.03)"} style={{ transition: "fill 0.4s" }} />
       <text x="56" y="21" textAnchor="middle" fill={locked ? ACCENT : "#555"} fontSize="7" fontFamily="monospace" letterSpacing="1" style={{ transition: "fill 0.4s" }}>
