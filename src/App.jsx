@@ -306,11 +306,13 @@ const styles = `
   .verdict { margin-top: 22px; padding: 28px; border-radius: var(--r); border: 1px solid; animation: verdictIn 0.4s ease; }
   @keyframes verdictIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-  /* ── gallery ── */
-  .gal { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .gal-item { position: relative; overflow: hidden; border-radius: var(--r); background: #111; cursor: zoom-in; border: 1px solid var(--line); }
-  .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.2,0.6,0.2,1); }
-  .gal-item:hover img { transform: scale(1.045); }
+  .notfall-box { margin-top: 56px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; padding: 30px; background: rgba(240,120,24,0.04); border: 1px solid rgba(240,120,24,0.2); border-radius: var(--r); }
+
+  /* ── gallery (Masonry – Bilder immer vollständig sichtbar, kein Zuschnitt) ── */
+  .gal { columns: 2; column-gap: 12px; }
+  .gal-item { position: relative; overflow: hidden; border-radius: var(--r); background: #111; cursor: zoom-in; border: 1px solid var(--line); break-inside: avoid; margin-bottom: 12px; }
+  .gal-item img { width: 100%; height: auto; display: block; transition: transform 0.6s cubic-bezier(0.2,0.6,0.2,1); }
+  .gal-item:hover img { transform: scale(1.03); }
   .gal-cap {
     position: absolute; bottom: 0; left: 0; right: 0;
     background: linear-gradient(transparent, rgba(0,0,0,0.85));
@@ -370,15 +372,12 @@ const styles = `
   @media (max-width: 620px) {
     .wrap { padding: 0 20px; }
     .cards-4, .cards-3, .cards-2 { grid-template-columns: 1fr; }
-    .gal { grid-template-columns: 1fr; }
-    .gal-item.wide { grid-column: auto; }
+    .gal { columns: 1; }
     .hero { padding: 120px 0 70px; }
     .hero-stats { gap: 28px; }
     .foot-grid { grid-template-columns: 1fr; }
     .quiz-q { flex-direction: column; align-items: flex-start; }
-  }
-  @media (min-width: 621px) {
-    .gal-item.wide { grid-column: span 2; }
+    .notfall-box { grid-template-columns: 1fr; justify-items: center; }
   }
 `;
 
@@ -549,7 +548,7 @@ function Hero() {
               {[
                 ["1", "Schalter für alles"],
                 ["≤ 5", "Schubladen pro Schiene"],
-                ["−30…70 °C", "Einsatzbereich"],
+                ["−30…75 °C", "Einsatzbereich"],
                 ["12 V", "Standard-Bordnetz"],
               ].map(([n, l]) => (
                 <div key={l}>
@@ -562,7 +561,7 @@ function Hero() {
 
           <div>
             <div className="media-frame">
-              <video autoPlay muted loop playsInline style={{ maxHeight: 520, objectFit: "cover", width: "100%" }}>
+              <video autoPlay muted loop playsInline style={{ width: "100%", height: "auto", display: "block" }}>
                 <source src="/videos/verriegeln_stable.mp4" type="video/mp4" />
               </video>
             </div>
@@ -660,9 +659,9 @@ function Produkt() {
           <div className="rv">
             <div className="media-frame">
               <img
-                src="/images/gallery_schiene_nah.jpg"
-                alt="RailLock Schienensystem im Camper eingebaut – Seitenansicht mit Haken und Halterungen"
-                style={{ height: 540, objectFit: "cover", objectPosition: "center top", width: "100%" }}
+                src="/images/Queransicht3.jpg"
+                alt="RailLock im Einbau – Haken und Halterung der Verriegelungsschiene greifen durch den Ausschnitt im Schubladenrücken"
+                style={{ height: 540, objectFit: "cover", objectPosition: "center 30%", width: "100%" }}
               />
             </div>
           </div>
@@ -710,7 +709,7 @@ function RailLockSVG({ locked = true }) {
   const cutT = -36, cutB = -5;
   const iL = bwX + bwT, iR = fwX, iT = cutT + wT, iB = dH / 2 - wT;
   const armY = -26, armH = 10, armXS = 68, armXE = iL + 18;
-  const tipXS = armXE - 10, tipXE = armXE, tipLen = 18;
+  const tipXS = armXE - 10, tipXE = armXE, tipLen = 9;
 
   return (
     <svg viewBox="0 0 320 460" xmlns="http://www.w3.org/2000/svg"
@@ -934,7 +933,7 @@ function Features() {
     { icon: "repeat", title: "Wartungsarm", desc: "Mechanisch simpel. Kein Service, keine Ersatzteile, kein Verschleißdrama." },
     { icon: "print", title: "3D-gedruckt & offen", desc: "Fertiges Kit oder STL-Dateien zum Selbstdrucken – du entscheidest." },
     { icon: "shield", title: "Vibrationsfest", desc: "Speziell für Dauervibration im Fahrbetrieb konstruiert – mittige U-Führung inklusive." },
-    { icon: "thermo", title: "−30 °C bis +70 °C", desc: "PETG bleibt formstabil – vom Wintertrip bis zum Hochsommer auf dem Campingplatz." },
+    { icon: "thermo", title: "−30 °C bis +75 °C", desc: "PETG bleibt formstabil – vom Wintertrip bis zum Hochsommer auf dem Campingplatz." },
     { icon: "box", title: "Unsichtbar verbaut", desc: "Sitzt komplett hinter den Schubladen. Von außen ist nichts zu sehen." },
     { icon: "feather", title: "Leichtgewicht", desc: "3D-Druck statt Stahlkonstruktion – minimales Zusatzgewicht im Ausbau." },
     { icon: "cpu", title: "Simpel ist zuverlässig", desc: "Nur ein 12-V-Stellmotor und ein Schalter. Was nicht kompliziert ist, geht auch nicht kaputt." },
@@ -1059,7 +1058,7 @@ function KompatCheck() {
         </div>
 
         {/* Notfallöffnung */}
-        <div className="rv d2" style={{ marginTop: 56, display: "grid", gridTemplateColumns: "1fr auto", gap: 30, alignItems: "center", padding: 30, background: "rgba(240,120,24,0.04)", border: "1px solid rgba(240,120,24,0.2)", borderRadius: "var(--r)" }}>
+        <div className="rv d2 notfall-box">
           <div>
             <div className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--acc)", marginBottom: 12 }}>NOTFALLÖFFNUNG</div>
             <p style={{ fontSize: 14, color: "var(--mut)", lineHeight: 1.8 }}>
@@ -1088,7 +1087,7 @@ function KompatCheck() {
 function TechSpecs() {
   const specs = [
     ["Material", "PETG (Polyethylenterephthalat-Glykol)"],
-    ["Temperaturbereich", "−30 °C bis +70 °C"],
+    ["Temperaturbereich", "−30 °C bis +75 °C"],
     ["Betriebsspannung", "12 V DC (Zentralverriegelung)"],
     ["Segmentlänge", "< 25 cm je Segment"],
     ["Führungssystem", "Mittige U-Führung"],
@@ -1114,7 +1113,7 @@ function TechSpecs() {
             <div style={{ padding: 28, background: "rgba(240,120,24,0.05)", border: "1px solid rgba(240,120,24,0.2)", borderRadius: "var(--r)", marginBottom: 20 }}>
               <div className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--acc)", marginBottom: 12 }}>WARUM PETG?</div>
               <p style={{ fontSize: 14, color: "var(--mut)", lineHeight: 1.8 }}>
-                PLA würde bei Sommerhitze im Fahrzeug erweichen. PETG bleibt bis 70 °C formstabil,
+                PLA würde bei Sommerhitze im Fahrzeug erweichen. PETG bleibt bis 75 °C formstabil,
                 ist schlagzäh, UV-beständig und für mechanische Dauerbelastung ausgelegt.
               </p>
             </div>
@@ -1275,7 +1274,7 @@ function Installation() {
             ))}
 
             <div className="media-frame" style={{ marginTop: 8 }}>
-              <img src="/images/einbau_seitenansicht.jpg" alt="RailLock im eingebauten Zustand – Seitenansicht" style={{ height: 300, objectFit: "cover", width: "100%" }} />
+              <img src="/images/einbau_seitenansicht.jpg" alt="RailLock im eingebauten Zustand – Seitenansicht" style={{ width: "100%", height: "auto" }} />
             </div>
           </div>
         </div>
@@ -1289,11 +1288,11 @@ function Installation() {
    ═══════════════════════════════════════════════════════════════════════════ */
 function Galerie() {
   const photos = [
-    { src: "/images/schubladen_vorne.jpg", caption: "Eingebaut – vier Schubladen, von außen sauber und unsichtbar gesichert", wide: true, h: 440 },
-    { src: "/images/ausschnitt_innen.jpg", caption: "Von innen – der Haken greift präzise durch den Ausschnitt im Schubladenrücken", h: 350 },
-    { src: "/images/schalter.jpg", caption: "Bedienung – ein Knopfdruck sichert alle Schubladen gleichzeitig", h: 350 },
-    { src: "/images/gallery_haken_detail.jpg", caption: "Hakendetail – der Haken blockiert die Schublade von innen", h: 330 },
-    { src: "/images/rueckwand.jpg", caption: "Rückseite des Korpus – manueller Schieber von außen zugänglich", h: 330 },
+    { src: "/images/schubladen_vorne.jpg", caption: "Eingebaut – vier Schubladen, von außen sauber und unsichtbar gesichert" },
+    { src: "/images/ausschnitt_innen.jpg", caption: "Von innen – der Haken greift präzise durch den Ausschnitt im Schubladenrücken" },
+    { src: "/images/schalter.jpg", caption: "Bedienung – ein Knopfdruck sichert alle Schubladen gleichzeitig" },
+    { src: "/images/gallery_haken_detail.jpg", caption: "Hakendetail – der Haken blockiert die Schublade von innen" },
+    { src: "/images/rueckwand.jpg", caption: "Rückseite des Korpus – manueller Schieber von außen zugänglich" },
   ];
   const [lightbox, setLightbox] = useState(null);
 
@@ -1315,7 +1314,7 @@ function Galerie() {
 
         <div className="gal rv d1">
           {photos.map((p, i) => (
-            <div key={i} className={`gal-item${p.wide ? " wide" : ""}`} style={{ height: p.h }} onClick={() => setLightbox(i)}>
+            <div key={i} className="gal-item" onClick={() => setLightbox(i)}>
               <img src={p.src} alt={p.caption} loading="lazy" />
               <div className="gal-cap">{p.caption}</div>
             </div>
@@ -1344,7 +1343,7 @@ function InAktion() {
         <div style={{ textAlign: "center", marginBottom: 52 }} className="rv">
           <div className="eyebrow" style={{ justifyContent: "center" }}>In Aktion</div>
           <h2 className="h2">Echte Verriegelung.<br /><span className="grad-text">Kein Rendering.</span></h2>
-          <p className="lead" style={{ margin: "0 auto" }}>Demonstration im eingebauten Zustand – so klingt und arbeitet RailLock wirklich.</p>
+          <p className="lead" style={{ margin: "0 auto" }}>Demonstration im eingebauten Zustand – so arbeitet RailLock in echt.</p>
         </div>
 
         <div className="media-frame rv d1" style={{ maxWidth: 1000, margin: "0 auto" }}>
@@ -1356,7 +1355,9 @@ function InAktion() {
         <div className="rv d2" style={{ marginTop: 60, textAlign: "center" }}>
           <div className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--dim)", marginBottom: 24 }}>360°-ANSICHT — ALLE KOMPONENTEN</div>
           <div className="media-frame" style={{ display: "inline-block", maxWidth: 780 }}>
-            <img src="/images/Rundumansicht.gif" alt="360°-Rundumansicht des RailLock-Systems: Schiene, Haken, Stellmotor und manueller Schieber" style={{ display: "block", width: "100%", background: "#000" }} />
+            <video autoPlay muted loop playsInline aria-label="360°-Rundumansicht des RailLock-Systems: Schiene, Haken, Stellmotor und manueller Schieber" style={{ display: "block", width: "100%", background: "#000" }}>
+              <source src="/videos/rundumansicht.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
@@ -1531,7 +1532,7 @@ function FAQ() {
     ["Kann ich das System selbst drucken?", "Ja. Es gibt zwei Varianten: das fertig gedruckte Kit, versandfertig und einbaubereit – oder nur die STL-Dateien zum vollständigen Selbstdrucken. Wichtig beim Selbstdruck: nur PETG verwenden, PLA ist nicht temperaturbeständig genug."],
     ["Welche Schubladen sind kompatibel?", "Übereinander gestapelte Schubladen, in deren Rücken ein Ausschnitt (ca. 45 × 30 mm) gesetzt werden kann – die mitgelieferte Schablone erleichtert das Anzeichnen. Nebeneinander liegende Schubladen sind nicht kompatibel."],
     ["Ist das System vibrationsfest?", "Ja. Das System wurde speziell für den Einsatz in fahrenden Fahrzeugen entwickelt. Die PETG-Schiene und die mittige U-Führung sorgen für Stabilität; die Schrauben lockern sich im Betrieb nicht, da sie direkt in PETG eingeschraubt werden."],
-    ["Warum PETG statt PLA?", "PLA erweicht bereits ab ca. 60 °C – ein realer Wert im Fahrzeug im Sommer. PETG bleibt bis 70 °C formstabil, ist schlagzäher, UV-beständiger und für mechanische Dauerbelastung geeignet."],
+    ["Warum PETG statt PLA?", "PLA erweicht bereits ab ca. 60 °C – ein realer Wert im Fahrzeug im Sommer. PETG bleibt bis 75 °C formstabil, ist schlagzäher, UV-beständiger und für mechanische Dauerbelastung geeignet."],
     ["Welche Zentralverriegelung wird empfohlen?", "Ein 12-V-Zentralverriegelungsset mit Stellmotor (5 Kabel), Steuergerät und passender Bauform für das gedruckte Stellmotor-Gehäuse. Ein konkreter, getesteter Bezugslink ist im Shop-Bereich dieser Seite und in der Montageanleitung hinterlegt."],
   ];
 

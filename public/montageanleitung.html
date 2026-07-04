@@ -3,471 +3,637 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RailLock – Montageanleitung</title>
+  <title>RailLock Montageanleitung – Zentrale Schubladensicherung für Camper</title>
+  <meta name="description" content="Offizielle Montageanleitung für das RailLock-System: Voraussetzungen, Maße, Werkzeuge, 15 Montageschritte, Funktionstest und Fehlersuche." />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --acc: #F07818;
+      --acc-dark: #D96A10;
+      --ink: #1B1815;
+      --body: #444038;
+      --mut: #8A847B;
+      --line: #E8E4DE;
+      --panel: #FAF8F5;
+      --warn-bg: #FFF6EE;
+      --info-bg: #F1F7F7;
+      --info: #1A7A7A;
+      --danger: #B33A2B;
+      --danger-bg: #FDF1EF;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f0f0f0;
-      color: #1a1a1a;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #EDEAE5;
+      color: var(--body);
       line-height: 1.7;
+      font-size: 14.5px;
     }
+
+    .disp { font-family: 'Space Grotesk', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
 
     .page {
-      max-width: 860px;
-      margin: 40px auto;
+      max-width: 880px;
+      margin: 36px auto;
       background: #fff;
-      padding: 60px 64px;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+      padding: 64px 68px 48px;
+      box-shadow: 0 4px 40px rgba(27, 24, 21, 0.12);
+      border-radius: 4px;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding-bottom: 32px;
-      border-bottom: 3px solid #E8700A;
-      margin-bottom: 48px;
+    /* ── Kopf ── */
+    .doc-head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+      padding-bottom: 28px; margin-bottom: 8px;
+      border-bottom: 3px solid var(--acc);
     }
-
-    .logo { font-size: 28px; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
-    .logo span { color: #E8700A; }
-    .doc-info { text-align: right; font-size: 12px; color: #888; line-height: 1.9; }
-
-    h1 { font-size: 34px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 6px; }
-    h2 {
-      font-size: 18px; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.04em; margin: 52px 0 16px;
-      padding-bottom: 10px; border-bottom: 2px solid #E8700A;
-    }
-    h3 { font-size: 15px; font-weight: 700; margin: 28px 0 8px; color: #222; }
-
-    p { font-size: 14px; color: #444; margin-bottom: 12px; }
-
-    ul, ol { padding-left: 22px; margin-bottom: 16px; }
-    li { font-size: 14px; color: #444; margin-bottom: 7px; }
-
-    .step {
-      display: flex;
-      gap: 24px;
-      padding: 22px 0;
-      border-bottom: 1px solid #ececec;
-    }
-    .step:last-child { border-bottom: none; }
-
-    .step-number {
-      flex-shrink: 0;
-      width: 42px; height: 42px;
-      background: #E8700A;
-      color: #fff;
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, #F07818, #FFB35C);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 17px;
-      border-radius: 2px;
     }
+    .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+    .brand-name em { font-style: normal; color: var(--acc); }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700;
+      color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 6px;
+    }
+    .subtitle { font-size: 14px; color: var(--mut); }
+    .doc-meta {
+      text-align: right; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--mut); line-height: 2; white-space: nowrap;
+    }
+    .doc-meta strong { color: var(--ink); font-weight: 500; }
 
-    .step-content h3 { margin: 0 0 7px; font-size: 15px; font-weight: 700; color: #111; }
-    .step-content p { margin: 0 0 6px; font-size: 14px; color: #555; }
-    .step-content p:last-child { margin-bottom: 0; }
+    .head-actions { display: flex; gap: 10px; margin: 20px 0 36px; }
+    .btn-print, .btn-back {
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600;
+      padding: 9px 20px; border-radius: 999px; cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-print { background: var(--ink); color: #fff; border: none; }
+    .btn-print:hover { background: #000; }
+    .btn-back { background: none; color: var(--body); border: 1px solid var(--line); }
+    .btn-back:hover { border-color: var(--acc); color: var(--acc-dark); }
 
-    .warning {
-      background: #fff7f0;
-      border-left: 4px solid #E8700A;
-      padding: 16px 20px;
-      margin: 24px 0;
-      font-size: 14px;
-      color: #4a2e00;
+    /* ── Inhaltsverzeichnis ── */
+    .toc {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 26px 30px; margin-bottom: 48px;
     }
-    .warning strong {
-      display: block; margin-bottom: 5px;
-      text-transform: uppercase; font-size: 10px;
-      letter-spacing: 0.12em; color: #E8700A;
+    .toc-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--acc-dark); margin-bottom: 14px;
     }
+    .toc ol { list-style: none; columns: 2; column-gap: 40px; }
+    .toc li { break-inside: avoid; border-bottom: 1px dotted var(--line); }
+    .toc a {
+      display: flex; gap: 10px; padding: 7px 0;
+      font-size: 13.5px; color: var(--body); text-decoration: none;
+    }
+    .toc a:hover { color: var(--acc-dark); }
+    .toc .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--acc); min-width: 18px; padding-top: 2px; }
 
-    .info {
-      background: #f0f8f8;
-      border-left: 4px solid #1A7A7A;
-      padding: 16px 20px;
-      margin: 24px 0;
-      font-size: 14px;
-      color: #0a3535;
+    /* ── Abschnitte ── */
+    section { margin-bottom: 52px; }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 700;
+      color: var(--ink); letter-spacing: -0.01em;
+      display: flex; align-items: baseline; gap: 14px;
+      padding-bottom: 12px; margin-bottom: 20px;
+      border-bottom: 2px solid var(--acc);
     }
-    .info strong {
-      display: block; margin-bottom: 5px;
-      text-transform: uppercase; font-size: 10px;
-      letter-spacing: 0.12em; color: #1A7A7A;
+    h2 .sec-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 400;
+      color: var(--acc); letter-spacing: 0.05em;
     }
+    h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); margin: 24px 0 8px; }
+    p { margin-bottom: 12px; }
+    ul, ol { padding-left: 22px; margin-bottom: 16px; }
+    li { margin-bottom: 7px; }
+    strong { color: var(--ink); font-weight: 600; }
 
-    .disclaimer {
-      background: #fff0f0;
-      border: 2px solid #c0392b;
-      padding: 20px 24px;
-      margin: 24px 0;
-      font-size: 14px;
-      color: #5a0a0a;
+    /* ── Hinweisboxen ── */
+    .box { border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-size: 13.5px; }
+    .box strong.label {
+      display: block; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
     }
-    .disclaimer strong {
-      display: block; margin-bottom: 8px;
-      text-transform: uppercase; font-size: 11px;
-      letter-spacing: 0.1em; color: #c0392b;
-    }
+    .box-warn { background: var(--warn-bg); border-left: 4px solid var(--acc); color: #5A4630; }
+    .box-warn strong.label { color: var(--acc-dark); }
+    .box-info { background: var(--info-bg); border-left: 4px solid var(--info); color: #274B4B; }
+    .box-info strong.label { color: var(--info); }
+    .box-danger { background: var(--danger-bg); border: 1.5px solid var(--danger); color: #5A2018; }
+    .box-danger strong.label { color: var(--danger); }
 
-    .measure-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
-    .measure-table th {
-      background: #1a1a1a; color: #fff;
-      padding: 10px 14px; text-align: left;
-      font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
+    /* ── Schritte ── */
+    .step {
+      display: flex; gap: 22px; padding: 22px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .measure-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid #eee; }
-    .measure-table tr:nth-child(even) td { background: #fafafa; }
+    .step:last-of-type { border-bottom: none; }
+    .step-no {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, #F07818, #FFB35C); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px;
+      box-shadow: 0 2px 8px rgba(240, 120, 24, 0.3);
+    }
+    .step h3 { margin: 2px 0 7px; font-size: 15.5px; }
+    .step p { margin-bottom: 8px; font-size: 13.8px; }
+    .step p:last-child { margin-bottom: 0; }
 
-    .checklist { list-style: none; padding: 0; margin: 12px 0; }
+    /* ── Tabellen ── */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font-size: 13.5px; }
+    thead th {
+      background: var(--ink); color: #fff; text-align: left;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px;
+      letter-spacing: 0.04em; padding: 10px 14px;
+    }
+    thead th:first-child { border-radius: 6px 0 0 0; }
+    thead th:last-child { border-radius: 0 6px 0 0; }
+    tbody td { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    tbody tr:nth-child(even) td { background: var(--panel); }
+    .fill { font-family: 'JetBrains Mono', monospace; color: var(--mut); }
+
+    /* ── Checklisten ── */
+    .checklist { list-style: none; padding: 0; margin: 14px 0; }
     .checklist li {
-      display: flex; gap: 12px;
-      padding: 9px 0; font-size: 14px; color: #444;
-      border-bottom: 1px solid #f0f0f0;
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 8px 0; border-bottom: 1px solid var(--panel); margin: 0;
     }
-    .checklist li::before { content: "☐"; font-size: 16px; color: #E8700A; flex-shrink: 0; margin-top: 1px; }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-      gap: 8px;
-      margin: 14px 0 4px;
-    }
-    .tool-item {
-      background: #f7f7f7;
-      border: 1px solid #e8e8e8;
-      padding: 10px 14px;
-      font-size: 13px; color: #444;
+    .checklist li::before {
+      content: ""; flex-shrink: 0; width: 17px; height: 17px; margin-top: 2px;
+      border: 2px solid var(--acc); border-radius: 4px;
     }
 
-    .trouble-block {
-      padding: 18px 20px;
-      border: 1px solid #e8e8e8;
-      margin-bottom: 10px;
-      background: #fafafa;
+    /* ── Werkzeuge ── */
+    .tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin: 14px 0 6px; }
+    .tool {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+      padding: 10px 14px; font-size: 13px; display: flex; align-items: center; gap: 9px;
     }
-    .trouble-block h3 {
-      margin: 0 0 8px;
-      font-size: 14px; font-weight: 700;
-      color: #E8700A; text-transform: uppercase; letter-spacing: 0.03em;
-    }
-    .trouble-block p { margin: 0; font-size: 14px; color: #555; }
+    .tool::before { content: "•"; color: var(--acc); font-weight: 700; }
 
-    footer {
-      margin-top: 64px;
-      padding-top: 20px;
-      border-top: 1px solid #e8e8e8;
-      font-size: 11px;
-      color: #bbb;
-      display: flex;
-      justify-content: space-between;
+    /* ── Diagramm ── */
+    .figure {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+      padding: 26px; margin: 20px 0; text-align: center;
+    }
+    .figure svg { max-width: 100%; height: auto; }
+    .figure figcaption {
+      margin-top: 14px; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--mut); letter-spacing: 0.04em;
+    }
+
+    /* ── Fehlersuche ── */
+    .trouble {
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 18px 22px; margin-bottom: 12px; background: #fff;
+    }
+    .trouble h3 { margin: 0 0 8px; font-size: 14px; color: var(--acc-dark); }
+    .trouble p { margin: 0; font-size: 13.5px; }
+    .trouble .fix { color: var(--ink); font-weight: 600; }
+
+    /* ── Fuß ── */
+    .doc-foot {
+      margin-top: 64px; padding-top: 22px; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      font-size: 12px; color: var(--mut);
+    }
+    .doc-foot a { color: var(--acc-dark); text-decoration: none; }
+    .doc-foot a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .page { margin: 0; padding: 36px 22px; border-radius: 0; }
+      .doc-head { flex-direction: column; }
+      .doc-meta { text-align: left; }
+      .toc ol { columns: 1; }
+      h1 { font-size: 27px; }
     }
 
     @media print {
-      body { background: white; }
-      .page { margin: 0; padding: 40px; box-shadow: none; }
-      .step { page-break-inside: avoid; }
-      .trouble-block { page-break-inside: avoid; }
+      body { background: #fff; font-size: 12px; }
+      .page { margin: 0; padding: 10mm 6mm; box-shadow: none; max-width: none; }
+      .head-actions { display: none; }
+      section { page-break-inside: auto; }
+      .step, .trouble, .box, .figure { page-break-inside: avoid; }
+      h2 { page-break-after: avoid; }
+      a { color: inherit; }
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <header>
+  <!-- ═══ KOPF ═══ -->
+  <header class="doc-head">
     <div>
-      <div class="logo">RAIL<span>LOCK</span></div>
+      <div class="brand">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <span class="brand-name">Rail<em>Lock</em></span>
+      </div>
       <h1>Montageanleitung</h1>
-      <p style="font-size:13px;color:#888;margin:4px 0 0;">Zentrale Schubladensicherung für Camper</p>
+      <p class="subtitle">Zentrale Schubladensicherung für Camper · 12 V</p>
     </div>
-    <div class="doc-info">
-      Version 1.0 · Stand 2026<br />
-      Bestellungen:<br />
-      etsy.com/de/shop/KunstLaserkatze
+    <div class="doc-meta">
+      Dokument <strong>RL-MA-01</strong><br />
+      Version <strong>2.0</strong> · Stand <strong>Juli 2026</strong><br />
+      Sprache <strong>DE</strong><br />
+      raillock-website.vercel.app
     </div>
   </header>
 
-
-  <!-- HAFTUNGSAUSSCHLUSS ELEKTRIK -->
-  <div class="disclaimer">
-    <strong>⚠ Haftungsausschluss – Elektrische Installation</strong>
-    Die elektrische Installation des Systems (Anschluss von Stellmotor, Steuergerät, Schalter, Kabel und Sicherung) liegt <strong>vollständig in der Verantwortung des Kunden</strong>. Der Anbieter übernimmt keinerlei Haftung für Schäden, die durch unsachgemäße Verkabelung, fehlende oder falsch dimensionierte Absicherung, fehlerhafte Leitungsführung oder unsachgemäßen Anschluss entstehen. Im Zweifelsfall eine Fachwerkstatt oder einen Elektriker hinzuziehen.
+  <div class="head-actions">
+    <button class="btn-print" onclick="window.print()">🖨 Anleitung drucken</button>
+    <a class="btn-back" href="/">← Zurück zur Webseite</a>
   </div>
 
+  <!-- ═══ INHALT ═══ -->
+  <nav class="toc">
+    <div class="toc-title">Inhalt</div>
+    <ol>
+      <li><a href="#sicherheit"><span class="num">1</span> Sicherheit &amp; Haftung</a></li>
+      <li><a href="#voraussetzungen"><span class="num">2</span> Voraussetzungen</a></li>
+      <li><a href="#werkzeug"><span class="num">3</span> Benötigte Werkzeuge</a></li>
+      <li><a href="#masse"><span class="num">4</span> Maße vor der Bestellung</a></li>
+      <li><a href="#lieferumfang"><span class="num">5</span> Lieferumfang</a></li>
+      <li><a href="#montage"><span class="num">6</span> Montage in 15 Schritten</a></li>
+      <li><a href="#funktionstest"><span class="num">7</span> Funktionstest</a></li>
+      <li><a href="#fehlersuche"><span class="num">8</span> Fehlersuche</a></li>
+      <li><a href="#pflege"><span class="num">9</span> Pflege &amp; Ersatzteile</a></li>
+    </ol>
+  </nav>
 
-  <!-- ZIELGRUPPE -->
-  <h2>Zielgruppe &amp; Zeitaufwand</h2>
-  <p>Diese Anleitung richtet sich an Camperausbauer und DIY-Anwender mit grundlegenden handwerklichen Kenntnissen.</p>
-  <p>Erfahrene Camperausbauer rechnen mit <strong>ca. 2–3 Stunden</strong> Montagezeit. Der tatsächliche Aufwand hängt von der Zugänglichkeit des Schubladenkorpus, den vorhandenen Werkzeugen und der persönlichen Erfahrung ab.</p>
+  <!-- ═══ 1 SICHERHEIT ═══ -->
+  <section id="sicherheit">
+    <h2><span class="sec-num">01</span> Sicherheit &amp; Haftung</h2>
 
-  <div class="info">
-    <strong>Hinweis zur Zugänglichkeit</strong>
-    Das System wurde primär an Schubladenkorpussen getestet, die von vorne und hinten gut erreichbar sind – idealerweise am Ausgang des Campers. Ist die Rückseite schwer zugänglich, wird die Montage deutlich aufwendiger. Bitte vor der Bestellung prüfen.
-  </div>
-
-
-  <!-- VORAUSSETZUNGEN -->
-  <h2>Voraussetzungen vor dem Einbau</h2>
-  <ul>
-    <li><strong>Stapelschubladen:</strong> Das System ist für übereinander gestapelte Schubladen ausgelegt.</li>
-    <li><strong>Mindesttiefe hinter den Schubladen:</strong> Zwischen Schubladenrücken und Rückwand des Korpus müssen mindestens <strong>3 cm</strong> Platz vorhanden sein – der Stellmotor benötigt diesen Raum.</li>
-    <li><strong>12V-Bordnetz:</strong> Ein 12V-Anschluss muss in der Nähe vorhanden oder verlegbar sein.</li>
-    <li><strong>Erreichbare Rückseite:</strong> Für Montage und spätere Notfallbedienung muss die Rückseite des Schubladenkorpus zugänglich sein.</li>
-  </ul>
-
-  <div class="warning">
-    <strong>Manuelle Notöffnung</strong>
-    Im Falle eines Stromausfalls muss die Verriegelungsschiene manuell nach oben geschoben werden können. Der mitgelieferte <strong>manuelle Schieber</strong> ermöglicht dies, sofern die Rückseite des Schubladenkorpus erreichbar ist. Ist kein beidseitiger Zugang möglich, bitte vor dem Einbau individuell klären, wie die Schiene im Notfall manuell geöffnet werden kann.
-  </div>
-
-
-  <!-- WERKZEUG -->
-  <h2>Benötigte Werkzeuge</h2>
-  <div class="tools-grid">
-    <div class="tool-item">Schraubendreher</div>
-    <div class="tool-item">Akkuschrauber</div>
-    <div class="tool-item">Bohrer</div>
-    <div class="tool-item">Stichsäge</div>
-    <div class="tool-item">Maßband</div>
-    <div class="tool-item">Marker oder Bleistift</div>
-    <div class="tool-item">Feile / Schleifpapier</div>
-  </div>
-  <p style="margin-top:10px;font-size:13px;color:#888;">Weitere Werkzeuge können je nach Aufbau hilfreich sein. Eine Stichsäge ist für die Ausschnitte in den Schubladenrücken besonders wichtig.</p>
-
-
-  <!-- MASSE VOR BESTELLUNG -->
-  <h2>Benötigte Maße (vor der Bestellung angeben)</h2>
-  <p>Diese Angaben bestimmen die kundenspezifischen Segmentlängen und müssen bei der Etsy-Bestellung mitgeteilt werden:</p>
-
-  <table class="measure-table">
-    <thead>
-      <tr><th>#</th><th>Messung</th><th>Dein Wert</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Anzahl der Schubladen</td><td>_______</td></tr>
-      <tr><td>2</td><td>Dicke der Schubladenrücken</td><td>_______ mm</td></tr>
-      <tr><td>3</td><td>Abstand: Boden bis Oberkante Schubladenrücken 1</td><td>_______ mm</td></tr>
-      <tr><td>4</td><td>Abstand: Oberkante SR 1 bis Oberkante SR 2</td><td>_______ mm</td></tr>
-      <tr><td>5</td><td>Abstand: Oberkante SR 2 bis Oberkante SR 3</td><td>_______ mm</td></tr>
-      <tr><td>6</td><td>Abstand: Oberkante SR 3 bis Oberkante SR 4</td><td>_______ mm</td></tr>
-      <tr><td>7</td><td>Abstand: Oberkante SR 4 bis Oberkante SR 5</td><td>_______ mm</td></tr>
-      <tr><td>8</td><td>Abstand: Oberkante SR 5 bis Oberkante SR 6</td><td>_______ mm</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:12px;color:#999;">SR = Schubladenrücken. Nur die für den eigenen Aufbau relevanten Abstände angeben.</p>
-
-
-  <!-- LIEFERUMFANG -->
-  <h2>Lieferumfang kontrollieren</h2>
-  <p>Vor Beginn der Montage alle Teile vollständig prüfen:</p>
-  <ul class="checklist">
-    <li>Kundenspezifische Schienensegmente (PETG, nummeriert)</li>
-    <li>Halterungen (eine pro Schublade)</li>
-    <li>Stellmotor-Gehäuse</li>
-    <li>Schablone für Schubladenausschnitte</li>
-    <li>Schablone / Markierhilfe für manuellen Schieber</li>
-    <li>Manueller Schieber + Rahmen</li>
-    <li>Hakenverlängerer (mehrere; nur bei Bedarf verwenden)</li>
-    <li>Schrauben zur Segmentverbindung</li>
-    <li>3 Schrauben für das Stellmotor-Gehäuse</li>
-    <li>Gewindeschraube (Stellmotor–Schiene), Federring, Mutter</li>
-    <li>Kantenschutz (je ein Stück pro Schublade; bei Bedarf verwenden)</li>
-    <li>Montageanleitung</li>
-  </ul>
-
-  <div class="info">
-    <strong>Nummerierte Segmente</strong>
-    Die Schienensegmente sind nummeriert, damit sie nicht falsch eingebaut werden können. Die Nummerierung beim Zusammenstecken beachten.
-  </div>
-
-  <div class="warning">
-    <strong>Nicht im Lieferumfang enthalten</strong>
-    Folgende Komponenten sind <strong>nicht enthalten</strong> und müssen separat beschafft werden: Zentralverriegelungsset (inkl. Stellmotor und Steuergerät), 12V-Schalter, Kabel, Sicherung, elektrische Verbinder, Korpus-Befestigungsschrauben sowie Werkzeug. Empfehlungen für bewährte Bezugsquellen sind auf der Webseite verlinkt.
-  </div>
-
-
-  <!-- MONTAGEABLAUF -->
-  <h2>Montageablauf</h2>
-
-  <div class="step">
-    <div class="step-number">1</div>
-    <div class="step-content">
-      <h3>Stellmotor einsetzen</h3>
-      <p>Den Stellmotor in das gedruckte Gehäuse einsetzen. Das Gehäuse anschließend mit den drei beigelegten Schrauben verschrauben.</p>
+    <div class="box box-danger">
+      <strong class="label">⚠ Haftungsausschluss – Elektrische Installation</strong>
+      Die elektrische Installation des Systems (Anschluss von Stellmotor, Steuergerät, Schalter, Kabel und Sicherung) liegt <strong>vollständig in der Verantwortung des Kunden</strong>. Der Anbieter übernimmt keinerlei Haftung für Schäden, die durch unsachgemäße Verkabelung, fehlende oder falsch dimensionierte Absicherung, fehlerhafte Leitungsführung oder unsachgemäßen Anschluss entstehen. Im Zweifelsfall eine Fachwerkstatt oder einen Elektriker hinzuziehen.
     </div>
-  </div>
 
-  <div class="step">
-    <div class="step-number">2</div>
-    <div class="step-content">
-      <h3>Schienensegmente zusammenstecken</h3>
-      <p>Die nummerierten Segmente in der richtigen Reihenfolge zusammenstecken. Dabei die Halterungen an den vorgesehenen Stellen zwischen die Segmente einstecken. Anschließend alle Segmente mit den mitgelieferten Schrauben fest verbinden.</p>
-      <p><strong>Wichtig:</strong> Die Schiene beim Zusammenstecken nicht seitlich biegen. Die Verbindungszapfen sind ausschließlich für die senkrechte Auf-und-Ab-Bewegung im Betrieb ausgelegt – seitliche Belastung während der Montage kann sie beschädigen.</p>
+    <div class="box box-warn">
+      <strong class="label">Wichtiger Hinweis zur Schiene</strong>
+      Die Schiene beim Zusammenstecken und Einbauen <strong>niemals seitlich biegen oder verdrehen</strong>. Die Verbindungszapfen sind ausschließlich für die senkrechte Auf-und-Ab-Bewegung im Betrieb ausgelegt. Schäden durch seitliche Belastung während der Montage sind von der Produktgewährleistung ausgeschlossen. Ersatzteile können einzeln nachbestellt werden.
     </div>
-  </div>
 
-  <div class="step">
-    <div class="step-number">3</div>
-    <div class="step-content">
-      <h3>Stellmotor mit der Schiene verbinden</h3>
-      <p>Den Stellmotor über die mitgelieferte Gewindeschraube mit der Schiene verbinden. Von der Gegenseite mit Federring und Mutter kontern. Im ausgefahrenen Zustand des Stellmotors sollte jeder Segment-Haken auf Höhe der Oberkante der jeweiligen Schublade stehen.</p>
+    <div class="box box-warn">
+      <strong class="label">Manuelle Notöffnung</strong>
+      Bei Stromausfall muss die Verriegelungsschiene manuell nach oben geschoben werden können. Der mitgelieferte <strong>manuelle Schieber</strong> ermöglicht dies, sofern die Rückseite des Schubladenkorpus erreichbar ist. Ist kein beidseitiger Zugang möglich, bitte <strong>vor dem Einbau</strong> individuell klären, wie die Schiene im Notfall geöffnet werden kann.
     </div>
-  </div>
 
-  <div class="step">
-    <div class="step-number">4</div>
-    <div class="step-content">
-      <h3>Arbeitsraum schaffen</h3>
-      <p>Alle Schubladen öffnen oder vollständig herausnehmen, damit hinter den Schubladenrücken genügend Platz für die Montagearbeiten vorhanden ist.</p>
+    <h3>Zielgruppe &amp; Zeitaufwand</h3>
+    <p>Diese Anleitung richtet sich an Camperausbauer und DIY-Anwender mit grundlegenden handwerklichen Kenntnissen. Erfahrene Camperausbauer rechnen mit <strong>ca. 2–3 Stunden</strong> Montagezeit. Der tatsächliche Aufwand hängt von der Zugänglichkeit des Schubladenkorpus, den vorhandenen Werkzeugen und der persönlichen Erfahrung ab.</p>
+  </section>
+
+  <!-- ═══ 2 VORAUSSETZUNGEN ═══ -->
+  <section id="voraussetzungen">
+    <h2><span class="sec-num">02</span> Voraussetzungen</h2>
+    <p>Vor Bestellung und Einbau prüfen, ob der Schubladenkorpus alle vier Bedingungen erfüllt:</p>
+    <table>
+      <thead><tr><th style="width:34%">Voraussetzung</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stapelschubladen</strong></td><td>Das System ist für übereinander gestapelte Schubladen ausgelegt. Nebeneinander liegende Schubladen sind nicht kompatibel.</td></tr>
+        <tr><td><strong>Mindesttiefe 3&nbsp;cm</strong></td><td>Zwischen Schubladenrücken und Rückwand des Korpus müssen mindestens 3&nbsp;cm Platz vorhanden sein – der Stellmotor benötigt diesen Raum.</td></tr>
+        <tr><td><strong>12V-Bordnetz</strong></td><td>Ein 12V-Anschluss muss in der Nähe vorhanden oder verlegbar sein.</td></tr>
+        <tr><td><strong>Erreichbare Rückseite</strong></td><td>Für Montage und spätere Notfallbedienung muss die Rückseite des Schubladenkorpus zugänglich sein.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box box-info">
+      <strong class="label">Hinweis zur Zugänglichkeit</strong>
+      Das System wurde primär an Schubladenkorpussen getestet, die von vorne und hinten gut erreichbar sind – idealerweise am Ausgang des Campers. Ist die Rückseite schwer zugänglich, wird die Montage deutlich aufwendiger. Bitte vor der Bestellung prüfen.
     </div>
-  </div>
+  </section>
 
-  <div class="step">
-    <div class="step-number">5</div>
-    <div class="step-content">
-      <h3>Provisorisch positionieren</h3>
-      <p>Den Stellmotor mit ein bis zwei Schrauben provisorisch am Boden befestigen. Direkt danach die oberste Halterung mit einer Schraube provisorisch fixieren. Dieser Schritt dient ausschließlich dem Anzeichnen der Ausschnitte – noch nicht endgültig verschrauben.</p>
+  <!-- ═══ 3 WERKZEUG ═══ -->
+  <section id="werkzeug">
+    <h2><span class="sec-num">03</span> Benötigte Werkzeuge</h2>
+    <div class="tools">
+      <div class="tool">Schraubendreher</div>
+      <div class="tool">Akkuschrauber</div>
+      <div class="tool">Bohrer</div>
+      <div class="tool">Stichsäge</div>
+      <div class="tool">Maßband</div>
+      <div class="tool">Marker oder Bleistift</div>
+      <div class="tool">Feile / Schleifpapier</div>
     </div>
-  </div>
+    <p style="font-size:13px;color:var(--mut);">Weitere Werkzeuge können je nach Aufbau hilfreich sein. Die Stichsäge ist für die Ausschnitte in den Schubladenrücken unverzichtbar.</p>
+  </section>
 
-  <div class="step">
-    <div class="step-number">6</div>
-    <div class="step-content">
-      <h3>Einbaulage prüfen</h3>
-      <p>Überprüfen, ob die Schiene in dieser Position sauber einbaubar ist und sich frei bewegen lässt. Bei Bedarf vor dem Anzeichnen nachjustieren.</p>
+  <!-- ═══ 4 MASSE ═══ -->
+  <section id="masse">
+    <h2><span class="sec-num">04</span> Maße vor der Bestellung</h2>
+    <p>Diese Angaben bestimmen die kundenspezifischen Segmentlängen und müssen bei der Etsy-Bestellung mitgeteilt werden. Das Diagramm zeigt, wo gemessen wird:</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Messdiagramm: Abstände zwischen den Oberkanten der Schubladenrücken">
+        <!-- Korpus -->
+        <rect x="150" y="20" width="260" height="290" fill="#fff" stroke="#C9C2B8" stroke-width="1.5" rx="3"/>
+        <!-- Boden -->
+        <rect x="150" y="302" width="260" height="8" fill="#8A847B" rx="2"/>
+        <text x="420" y="311" font-family="JetBrains Mono, monospace" font-size="10" fill="#8A847B">Boden</text>
+        <!-- Schubladenrücken (Seitenansicht) -->
+        <g>
+          <rect x="170" y="240" width="220" height="52" fill="#FAF8F5" stroke="#C9C2B8"/>
+          <rect x="170" y="240" width="220" height="7" fill="#F07818" opacity="0.85"/>
+          <text x="280" y="272" font-family="Inter, sans-serif" font-size="11" fill="#8A847B" text-anchor="middle">Schublade 1</text>
+        </g>
+        <g>
+          <rect x="170" y="160" width="220" height="52" fill="#FAF8F5" stroke="#C9C2B8"/>
+          <rect x="170" y="160" width="220" height="7" fill="#F07818" opacity="0.85"/>
+          <text x="280" y="192" font-family="Inter, sans-serif" font-size="11" fill="#8A847B" text-anchor="middle">Schublade 2</text>
+        </g>
+        <g>
+          <rect x="170" y="80" width="220" height="52" fill="#FAF8F5" stroke="#C9C2B8"/>
+          <rect x="170" y="80" width="220" height="7" fill="#F07818" opacity="0.85"/>
+          <text x="280" y="112" font-family="Inter, sans-serif" font-size="11" fill="#8A847B" text-anchor="middle">Schublade 3</text>
+        </g>
+        <text x="398" y="86" font-family="JetBrains Mono, monospace" font-size="9" fill="#D96A10">OK SR = Oberkante</text>
+        <text x="398" y="97" font-family="JetBrains Mono, monospace" font-size="9" fill="#D96A10">Schubladenrücken</text>
+
+        <!-- Maßlinien links -->
+        <g stroke="#1B1815" stroke-width="1">
+          <line x1="120" y1="302" x2="120" y2="243" />
+          <line x1="114" y1="302" x2="126" y2="302" />
+          <line x1="114" y1="243" x2="126" y2="243" />
+        </g>
+        <text x="106" y="277" font-family="JetBrains Mono, monospace" font-size="11" fill="#1B1815" text-anchor="end">③</text>
+
+        <g stroke="#1B1815" stroke-width="1">
+          <line x1="120" y1="240" x2="120" y2="163" />
+          <line x1="114" y1="163" x2="126" y2="163" />
+        </g>
+        <text x="106" y="205" font-family="JetBrains Mono, monospace" font-size="11" fill="#1B1815" text-anchor="end">④</text>
+
+        <g stroke="#1B1815" stroke-width="1">
+          <line x1="120" y1="160" x2="120" y2="83" />
+          <line x1="114" y1="83" x2="126" y2="83" />
+        </g>
+        <text x="106" y="125" font-family="JetBrains Mono, monospace" font-size="11" fill="#1B1815" text-anchor="end">⑤</text>
+
+        <!-- Dickenmaß rechts -->
+        <g stroke="#D96A10" stroke-width="1">
+          <line x1="440" y1="240" x2="440" y2="247" />
+          <line x1="434" y1="240" x2="446" y2="240" />
+          <line x1="434" y1="247" x2="446" y2="247" />
+        </g>
+        <text x="452" y="248" font-family="JetBrains Mono, monospace" font-size="10" fill="#D96A10">② Dicke SR</text>
+      </svg>
+      <figcaption>Abb. 1 — Messpunkte: ② Dicke der Schubladenrücken · ③–⑧ Abstände der Oberkanten (OK)</figcaption>
+    </figure>
+
+    <table>
+      <thead><tr><th style="width:8%">#</th><th>Messung</th><th style="width:22%">Dein Wert</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Anzahl der Schubladen</td><td class="fill">_______</td></tr>
+        <tr><td>2</td><td>Dicke der Schubladenrücken</td><td class="fill">_______ mm</td></tr>
+        <tr><td>3</td><td>Abstand: Boden bis Oberkante Schubladenrücken 1</td><td class="fill">_______ mm</td></tr>
+        <tr><td>4</td><td>Abstand: Oberkante SR 1 bis Oberkante SR 2</td><td class="fill">_______ mm</td></tr>
+        <tr><td>5</td><td>Abstand: Oberkante SR 2 bis Oberkante SR 3</td><td class="fill">_______ mm</td></tr>
+        <tr><td>6</td><td>Abstand: Oberkante SR 3 bis Oberkante SR 4</td><td class="fill">_______ mm</td></tr>
+        <tr><td>7</td><td>Abstand: Oberkante SR 4 bis Oberkante SR 5</td><td class="fill">_______ mm</td></tr>
+        <tr><td>8</td><td>Abstand: Oberkante SR 5 bis Oberkante SR 6</td><td class="fill">_______ mm</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12.5px;color:var(--mut);">SR = Schubladenrücken. Nur die für den eigenen Aufbau relevanten Abstände angeben.</p>
+  </section>
+
+  <!-- ═══ 5 LIEFERUMFANG ═══ -->
+  <section id="lieferumfang">
+    <h2><span class="sec-num">05</span> Lieferumfang kontrollieren</h2>
+    <p>Vor Beginn der Montage alle Teile auf Vollständigkeit prüfen:</p>
+    <ul class="checklist">
+      <li>Kundenspezifische Schienensegmente (PETG, nummeriert)</li>
+      <li>Halterungen (eine pro Schublade)</li>
+      <li>Stellmotor-Gehäuse</li>
+      <li>Schablone für Schubladenausschnitte</li>
+      <li>Schablone / Markierhilfe für manuellen Schieber</li>
+      <li>Manueller Schieber + Rahmen</li>
+      <li>Hakenverlängerer (mehrere; nur bei Bedarf verwenden)</li>
+      <li>Schrauben zur Segmentverbindung</li>
+      <li>3 Schrauben für das Stellmotor-Gehäuse</li>
+      <li>Gewindeschraube (Stellmotor–Schiene), Federring, Mutter</li>
+      <li>Kantenschutz (je ein Stück pro Schublade; bei Bedarf verwenden)</li>
+      <li>Montageanleitung</li>
+    </ul>
+
+    <div class="box box-info">
+      <strong class="label">Nummerierte Segmente</strong>
+      Die Schienensegmente sind nummeriert, damit sie nicht falsch eingebaut werden können. Die Nummerierung beim Zusammenstecken beachten.
     </div>
-  </div>
 
-  <div class="step">
-    <div class="step-number">7</div>
-    <div class="step-content">
-      <h3>Ausschnitte anzeichnen</h3>
-      <p>Die mitgelieferte Schablone nacheinander auf jeden Hakenkopf aufsetzen und Schublade für Schublade den Ausschnitt mit einem Marker anzeichnen.</p>
+    <div class="box box-info">
+      <strong class="label">Material PETG</strong>
+      Alle gedruckten Teile bestehen aus PETG – formstabil bis 75&nbsp;°C, schlagzäh und für den Dauereinsatz im Fahrzeug ausgelegt. Beim Selbstdruck der STL-Dateien ausschließlich PETG verwenden, kein PLA.
     </div>
-  </div>
 
-  <div class="step">
-    <div class="step-number">8</div>
-    <div class="step-content">
-      <h3>Ausschnitte aussägen</h3>
-      <p>Die angezeichneten Ausschnitte mit einer Stichsäge aussägen. Richtwert pro Schublade: ca. <strong>45 × 30 mm</strong>. Der Ausschnitt befindet sich am Schubladenrücken und ist im eingebauten Zustand in der Regel von vorne nicht sichtbar. Anschließend die Schnittkanten mit einer Feile oder Schleifpapier entgraten.</p>
+    <div class="box box-warn">
+      <strong class="label">Nicht im Lieferumfang enthalten</strong>
+      Folgende Komponenten müssen separat beschafft werden: Zentralverriegelungsset (inkl. Stellmotor und Steuergerät), 12V-Schalter, Kabel, Sicherung, elektrische Verbinder, Korpus-Befestigungsschrauben sowie Werkzeug. Empfehlungen für bewährte Bezugsquellen sind auf der <a href="/#shop">Webseite</a> verlinkt.
     </div>
-  </div>
+  </section>
 
-  <div class="step">
-    <div class="step-number">9</div>
-    <div class="step-content">
-      <h3>Kantenschutz anbringen (bei Bedarf)</h3>
-      <p>Den mitgelieferten Kantenschutz an den Ausschnittkanten befestigen. Der Kantenschutz ist im Lieferumfang enthalten, muss aber nicht zwingend eingebaut werden.</p>
-    </div>
-  </div>
+  <!-- ═══ 6 MONTAGE ═══ -->
+  <section id="montage">
+    <h2><span class="sec-num">06</span> Montage in 15 Schritten</h2>
 
-  <div class="step">
-    <div class="step-number">10</div>
-    <div class="step-content">
-      <h3>Schubladen einsetzen und Funktion prüfen</h3>
-      <p>Die Schubladen wieder einsetzen und folgende Punkte kontrollieren: Passen die Hakenköpfe von der Höhe? Ragen die Haken korrekt in die Ausschnitte hinein? Lässt sich die Schiene frei nach oben und unten bewegen? Falls nötig, Halterungen oder Stellmotor nachjustieren.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-number">11</div>
-    <div class="step-content">
-      <h3>Endgültig verschrauben</h3>
-      <p>Wenn alles passt, Stellmotor und Halterungen fest anschrauben. Tipp: Zunächst pro Halterung nur eine Schraube setzen. Falls die Schiene nach dem Verkabeln leicht herunterrutscht, kann eine Halterung minimal schräg eingebaut werden, um das Absenken zu verhindern.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-number">12</div>
-    <div class="step-content">
-      <h3>Leichtgängigkeit kontrollieren</h3>
-      <p>Prüfen, ob sich die Schiene mühelos nach oben und unten schieben lässt. Klemmt sie, sind Halterungen oder Stellmotor wahrscheinlich nicht ganz gerade eingebaut – in diesem Fall nachjustieren.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-number">13</div>
-    <div class="step-content">
-      <h3>Manuellen Schieber montieren</h3>
-      <p>Den manuellen Schieber an der vorgesehenen Position anschrauben. Er ermöglicht das manuelle Öffnen der Schiene bei Stromausfall.</p>
-      <p><strong>Falls der Schubladenkorpus eine Rückwand hat:</strong> Schablone auf den manuellen Schieber aufsetzen, Rückwand von außen andrücken und dadurch die Markierung übertragen. Anschließend den Rahmen für den manuellen Schieber auf die Markierung setzen, den Ausschnitt mit etwas Luft anzeichnen, aussägen und den Rahmen einkleben.</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-number">14</div>
-    <div class="step-content">
-      <h3>Elektrisch anschließen</h3>
-      <p>Den Schalter an der gewünschten Position im Fahrzeug einbauen. Schalter, Steuereinheit und Stellmotor gemäß den Vorgaben des Steuergerät-Herstellers und den Anforderungen des Fahrzeugs verkabeln. Die Schiene anschließend mehrfach betätigen und auf einwandfreie Funktion prüfen.</p>
-      <div class="disclaimer" style="margin-top:12px;">
-        <strong>Haftungsausschluss</strong>
-        Die elektrische Installation liegt vollständig in der Verantwortung des Kunden. Der Anbieter übernimmt keinerlei Haftung für Schäden durch unsachgemäßen Anschluss, fehlende Absicherung oder fehlerhafte Leitungsführung.
+    <div class="step">
+      <div class="step-no">1</div>
+      <div>
+        <h3>Stellmotor einsetzen</h3>
+        <p>Den Stellmotor in das gedruckte Gehäuse einsetzen. Das Gehäuse anschließend mit den drei beigelegten Schrauben verschrauben.</p>
       </div>
     </div>
-  </div>
 
-  <div class="step">
-    <div class="step-number">15</div>
-    <div class="step-content">
-      <h3>Hakenverlängerer einsetzen (bei Bedarf)</h3>
-      <p>Besteht nach dem Testlauf noch zu viel Spiel zwischen Haken und Schublade, die beigelegten Hakenverlängerer am Hakenkopf befestigen. Verlängerer hinzufügen, bis der Haken sicher und spielfrei in den Ausschnitt greift.</p>
+    <div class="step">
+      <div class="step-no">2</div>
+      <div>
+        <h3>Schienensegmente zusammenstecken</h3>
+        <p>Die nummerierten Segmente in der richtigen Reihenfolge zusammenstecken. Dabei die Halterungen an den vorgesehenen Stellen zwischen die Segmente einstecken. Anschließend alle Segmente mit den mitgelieferten Schrauben fest verbinden.</p>
+        <p><strong>Wichtig:</strong> Die Schiene beim Zusammenstecken nicht seitlich biegen. Die Verbindungszapfen sind ausschließlich für die senkrechte Auf-und-Ab-Bewegung im Betrieb ausgelegt – seitliche Belastung während der Montage kann sie beschädigen.</p>
+      </div>
     </div>
-  </div>
 
+    <div class="step">
+      <div class="step-no">3</div>
+      <div>
+        <h3>Stellmotor mit der Schiene verbinden</h3>
+        <p>Den Stellmotor über die mitgelieferte Gewindeschraube mit der Schiene verbinden. Von der Gegenseite mit Federring und Mutter kontern. Im ausgefahrenen Zustand des Stellmotors sollte jeder Segment-Haken auf Höhe der Oberkante der jeweiligen Schublade stehen.</p>
+      </div>
+    </div>
 
-  <!-- FUNKTIONSTEST -->
-  <h2>Funktionstest nach der Montage</h2>
-  <ul class="checklist">
-    <li>Schalter betätigen – Schiene verriegeln</li>
-    <li>Jede Schublade einzeln nach vorne ziehen – keine darf sich öffnen lassen</li>
-    <li>Schalter erneut betätigen – Schiene entriegeln</li>
-    <li>Alle Schubladen öffnen und schließen – freie Beweglichkeit prüfen</li>
-    <li>Mehrere Schaltzyklen hintereinander wiederholen</li>
-    <li>Manuellen Schieber auf Funktion testen</li>
-  </ul>
+    <div class="step">
+      <div class="step-no">4</div>
+      <div>
+        <h3>Arbeitsraum schaffen</h3>
+        <p>Alle Schubladen öffnen oder vollständig herausnehmen, damit hinter den Schubladenrücken genügend Platz für die Montagearbeiten vorhanden ist.</p>
+      </div>
+    </div>
 
+    <div class="step">
+      <div class="step-no">5</div>
+      <div>
+        <h3>Provisorisch positionieren</h3>
+        <p>Den Stellmotor mit ein bis zwei Schrauben provisorisch am Boden befestigen. Direkt danach die oberste Halterung mit einer Schraube provisorisch fixieren. Dieser Schritt dient ausschließlich dem Anzeichnen der Ausschnitte – noch nicht endgültig verschrauben.</p>
+      </div>
+    </div>
 
-  <!-- FEHLERSUCHE -->
-  <h2>Fehlersuche</h2>
+    <div class="step">
+      <div class="step-no">6</div>
+      <div>
+        <h3>Einbaulage prüfen</h3>
+        <p>Überprüfen, ob die Schiene in dieser Position sauber einbaubar ist und sich frei bewegen lässt. Bei Bedarf vor dem Anzeichnen nachjustieren.</p>
+      </div>
+    </div>
 
-  <div class="trouble-block">
-    <h3>Schiene lässt sich schwer oder gar nicht bewegen</h3>
-    <p>Ursache ist meistens eine nicht ganz gerade ausgerichtete Halterung oder ein schief sitzender Stellmotor. Lösung: Halterungen und Stellmotor einzeln lösen, neu ausrichten und wieder festschrauben.</p>
-  </div>
+    <div class="step">
+      <div class="step-no">7</div>
+      <div>
+        <h3>Ausschnitte anzeichnen</h3>
+        <p>Die mitgelieferte Schablone nacheinander auf jeden Hakenkopf aufsetzen und Schublade für Schublade den Ausschnitt mit einem Marker anzeichnen.</p>
+      </div>
+    </div>
 
-  <div class="trouble-block">
-    <h3>Eine oder mehrere Schubladen verriegeln nicht</h3>
-    <p>Mögliche Ursachen: Die Hakenköpfe greifen nicht vollständig in die Ausschnitte – entweder weil die Höhenposition nicht stimmt, der Haken auf dem Schubladenrücken aufliegt, oder die Schiene ihren unteren Endpunkt nicht erreicht. Auch eine fehlerhafte Verkabelung von Stellmotor oder Schalter kann der Grund sein. Zunächst die mechanische Position prüfen, dann die Verkabelung kontrollieren.</p>
-  </div>
+    <div class="step">
+      <div class="step-no">8</div>
+      <div>
+        <h3>Ausschnitte aussägen</h3>
+        <p>Die angezeichneten Ausschnitte mit einer Stichsäge aussägen. Richtwert pro Schublade: ca. <strong>45 × 30 mm</strong>. Der Ausschnitt befindet sich am Schubladenrücken und ist im eingebauten Zustand in der Regel von vorne nicht sichtbar. Anschließend die Schnittkanten mit Feile oder Schleifpapier entgraten.</p>
+      </div>
+    </div>
 
-  <div class="trouble-block">
-    <h3>Ausschnitt ist zu eng</h3>
-    <p>Bei korrekter Verwendung der mitgelieferten Schablone sollte das nicht vorkommen. Falls doch: den Ausschnitt vorsichtig mit Feile oder Stichsäge geringfügig erweitern. Danach Schiene und Halterungen erneut auf korrekte Position prüfen.</p>
-  </div>
+    <div class="step">
+      <div class="step-no">9</div>
+      <div>
+        <h3>Kantenschutz anbringen (bei Bedarf)</h3>
+        <p>Den mitgelieferten Kantenschutz an den Ausschnittkanten befestigen. Der Kantenschutz ist im Lieferumfang enthalten, muss aber nicht zwingend eingebaut werden.</p>
+      </div>
+    </div>
 
-  <div class="trouble-block">
-    <h3>Stellmotor bewegt sich, aber die Schiene bleibt stehen</h3>
-    <p>Die Schiene blockiert wahrscheinlich an einer Halterung. Alle Halterungen lösen, auf Gerade ausrichten und erneut festschrauben. Auch die Stellmotorposition prüfen.</p>
-  </div>
+    <div class="step">
+      <div class="step-no">10</div>
+      <div>
+        <h3>Schubladen einsetzen und Funktion prüfen</h3>
+        <p>Die Schubladen wieder einsetzen und kontrollieren: Passen die Hakenköpfe von der Höhe? Ragen die Haken korrekt in die Ausschnitte hinein? Lässt sich die Schiene frei nach oben und unten bewegen? Falls nötig, Halterungen oder Stellmotor nachjustieren.</p>
+      </div>
+    </div>
 
-  <div class="trouble-block">
-    <h3>Ein Bauteil wurde bei der Montage beschädigt</h3>
-    <p>Alle gedruckten Teile sind einzeln austauschbar. Ersatzteile können separat über den Etsy-Shop nachbestellt werden. Bei Fragen bitte über Etsy Kontakt aufnehmen.</p>
-  </div>
+    <div class="step">
+      <div class="step-no">11</div>
+      <div>
+        <h3>Endgültig verschrauben</h3>
+        <p>Wenn alles passt, Stellmotor und Halterungen fest anschrauben.</p>
+        <p><strong>Tipp:</strong> Zunächst pro Halterung nur eine Schraube setzen. Falls die Schiene nach dem Verkabeln leicht herunterrutscht, kann eine Halterung minimal schräg eingebaut werden, um das Absenken zu verhindern.</p>
+      </div>
+    </div>
 
+    <div class="step">
+      <div class="step-no">12</div>
+      <div>
+        <h3>Leichtgängigkeit kontrollieren</h3>
+        <p>Prüfen, ob sich die Schiene mühelos nach oben und unten schieben lässt. Klemmt sie, sind Halterungen oder Stellmotor wahrscheinlich nicht ganz gerade eingebaut – in diesem Fall nachjustieren.</p>
+      </div>
+    </div>
 
-  <!-- HINWEISE -->
-  <div class="warning" style="margin-top:48px;">
-    <strong>Wichtige Hinweise zur Schiene</strong>
-    Die Schiene beim Zusammenstecken und Einbauen niemals seitlich biegen oder verdrehen. Die Verbindungszapfen sind nur für die spätere senkrechte Bewegung im Betrieb ausgelegt. Schäden durch seitliche Belastung während der Montage sind von der Produktgewährleistung ausgeschlossen. Ersatzteile können einzeln nachbestellt werden.
-  </div>
+    <div class="step">
+      <div class="step-no">13</div>
+      <div>
+        <h3>Manuellen Schieber montieren</h3>
+        <p>Den manuellen Schieber an der vorgesehenen Position anschrauben. Er ermöglicht das manuelle Öffnen der Schiene bei Stromausfall.</p>
+        <p><strong>Falls der Schubladenkorpus eine Rückwand hat:</strong> Schablone auf den manuellen Schieber aufsetzen, Rückwand von außen andrücken und dadurch die Markierung übertragen. Anschließend den Rahmen für den manuellen Schieber auf die Markierung setzen, den Ausschnitt mit etwas Luft anzeichnen, aussägen und den Rahmen einkleben.</p>
+      </div>
+    </div>
 
-  <footer>
-    <span>© 2026 RailLock – Zentrale Schubladensicherung für Camper</span>
-    <span>etsy.com/de/shop/KunstLaserkatze</span>
+    <div class="step">
+      <div class="step-no">14</div>
+      <div>
+        <h3>Elektrisch anschließen</h3>
+        <p>Den Schalter an der gewünschten Position im Fahrzeug einbauen. Schalter, Steuereinheit und Stellmotor gemäß den Vorgaben des Steuergerät-Herstellers und den Anforderungen des Fahrzeugs verkabeln. Die Schiene anschließend mehrfach betätigen und auf einwandfreie Funktion prüfen.</p>
+        <div class="box box-danger" style="margin:12px 0 0;">
+          <strong class="label">Haftungsausschluss</strong>
+          Die elektrische Installation liegt vollständig in der Verantwortung des Kunden. Der Anbieter übernimmt keinerlei Haftung für Schäden durch unsachgemäßen Anschluss, fehlende Absicherung oder fehlerhafte Leitungsführung.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">15</div>
+      <div>
+        <h3>Hakenverlängerer einsetzen (bei Bedarf)</h3>
+        <p>Besteht nach dem Testlauf noch zu viel Spiel zwischen Haken und Schublade, die beigelegten Hakenverlängerer am Hakenkopf befestigen. Verlängerer hinzufügen, bis der Haken sicher und spielfrei in den Ausschnitt greift.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 FUNKTIONSTEST ═══ -->
+  <section id="funktionstest">
+    <h2><span class="sec-num">07</span> Funktionstest nach der Montage</h2>
+    <ul class="checklist">
+      <li>Schalter betätigen – Schiene verriegelt</li>
+      <li>Jede Schublade einzeln nach vorne ziehen – keine darf sich öffnen lassen</li>
+      <li>Schalter erneut betätigen – Schiene entriegelt</li>
+      <li>Alle Schubladen öffnen und schließen – freie Beweglichkeit prüfen</li>
+      <li>Mehrere Schaltzyklen hintereinander wiederholen</li>
+      <li>Manuellen Schieber auf Funktion testen</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 8 FEHLERSUCHE ═══ -->
+  <section id="fehlersuche">
+    <h2><span class="sec-num">08</span> Fehlersuche</h2>
+
+    <div class="trouble">
+      <h3>Schiene lässt sich schwer oder gar nicht bewegen</h3>
+      <p>Ursache ist meistens eine nicht ganz gerade ausgerichtete Halterung oder ein schief sitzender Stellmotor. <span class="fix">Lösung:</span> Halterungen und Stellmotor einzeln lösen, neu ausrichten und wieder festschrauben.</p>
+    </div>
+
+    <div class="trouble">
+      <h3>Eine oder mehrere Schubladen verriegeln nicht</h3>
+      <p>Mögliche Ursachen: Die Hakenköpfe greifen nicht vollständig in die Ausschnitte – entweder weil die Höhenposition nicht stimmt, der Haken auf dem Schubladenrücken aufliegt oder die Schiene ihren unteren Endpunkt nicht erreicht. Auch eine fehlerhafte Verkabelung von Stellmotor oder Schalter kann der Grund sein. <span class="fix">Lösung:</span> Zunächst die mechanische Position prüfen, dann die Verkabelung kontrollieren.</p>
+    </div>
+
+    <div class="trouble">
+      <h3>Ausschnitt ist zu eng</h3>
+      <p>Bei korrekter Verwendung der mitgelieferten Schablone sollte das nicht vorkommen. <span class="fix">Lösung:</span> Den Ausschnitt vorsichtig mit Feile oder Stichsäge geringfügig erweitern. Danach Schiene und Halterungen erneut auf korrekte Position prüfen.</p>
+    </div>
+
+    <div class="trouble">
+      <h3>Stellmotor bewegt sich, aber die Schiene bleibt stehen</h3>
+      <p>Die Schiene blockiert wahrscheinlich an einer Halterung. <span class="fix">Lösung:</span> Alle Halterungen lösen, gerade ausrichten und erneut festschrauben. Auch die Stellmotorposition prüfen.</p>
+    </div>
+
+    <div class="trouble">
+      <h3>Ein Bauteil wurde bei der Montage beschädigt</h3>
+      <p>Alle gedruckten Teile sind einzeln austauschbar. <span class="fix">Lösung:</span> Ersatzteile separat über den Etsy-Shop nachbestellen. Bei Fragen bitte über Etsy Kontakt aufnehmen.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 9 PFLEGE ═══ -->
+  <section id="pflege">
+    <h2><span class="sec-num">09</span> Pflege &amp; Ersatzteile</h2>
+    <p>Das System ist wartungsarm: Es genügt, gelegentlich die Leichtgängigkeit der Schiene und den festen Sitz der Schrauben zu prüfen – idealerweise vor längeren Reisen.</p>
+    <ul>
+      <li><strong>Ersatzteile:</strong> Alle gedruckten Komponenten sind einzeln über den <a href="https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v" target="_blank" rel="noopener noreferrer">Etsy-Shop</a> nachbestellbar.</li>
+      <li><strong>Temperatur:</strong> PETG ist bis 75&nbsp;°C formstabil – normale Fahrzeuginnentemperaturen sind unkritisch.</li>
+      <li><strong>Fragen zur Montage:</strong> Kontakt über die <a href="/kontakt.html">Webseite</a> oder direkt über Etsy.</li>
+    </ul>
+  </section>
+
+  <footer class="doc-foot">
+    <span>© 2026 RailLock · Zentrale Schubladensicherung für Camper</span>
+    <span>Dokument RL-MA-01 · Version 2.0 · <a href="/">raillock-website.vercel.app</a></span>
   </footer>
 
 </div>

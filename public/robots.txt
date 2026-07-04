@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /v1.html
+Disallow: /vergleich.html
+
+Sitemap: https://raillock-website.vercel.app/sitemap.xml
