@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – VanLatch</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0D0D0D;
+      color: #E0DDD8;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 80px 40px;
+    }
+    .container { max-width: 700px; margin: 0 auto; }
+    .back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #E8700A; font-size: 13px; text-decoration: none;
+      letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;
+      margin-bottom: 48px;
+    }
+    .back:hover { opacity: 0.8; }
+    h1 { font-size: 48px; font-weight: 800; text-transform: uppercase;
+         letter-spacing: -0.02em; margin-bottom: 48px;
+         font-family: 'Segoe UI', system-ui, sans-serif; }
+    h1 span { color: #E8700A; }
+    h2 { font-size: 11px; font-weight: 600; text-transform: uppercase;
+         letter-spacing: 0.15em; color: #E8700A; margin-top: 40px; margin-bottom: 12px; }
+    p { color: #8A8A8A; margin-bottom: 12px; line-height: 1.8; }
+    strong { color: #E0DDD8; }
+    a { color: #E8700A; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .contact-card {
+      background: #161616;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .contact-card .label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #E8700A; margin-bottom: 8px;
+    }
+    .contact-card .value {
+      font-size: 18px; font-weight: 600; color: #E0DDD8;
+    }
+    .note {
+      border-left: 3px solid rgba(232,112,10,0.4);
+      padding: 16px 20px;
+      background: rgba(232,112,10,0.04);
+      margin: 32px 0;
+    }
+    .note p { margin: 0; font-size: 14px; }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 32px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back">← Zurück zur Webseite</a>
+
+    <h1>Kon<span>takt</span></h1>
+
+    <p>
+      Du hast Fragen zum Produkt, zu deinem Einbau oder zur Bestellung?
+      Schreib mir direkt – ich antworte in der Regel innerhalb von 1–2 Werktagen.
+    </p>
+
+    <div class="contact-card">
+      <div class="label">E-Mail</div>
+      <div class="value">
+        <a href="mailto:kunstlaserkatze@gmail.com">kunstlaserkatze@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="label">Etsy-Shop</div>
+      <div class="value">
+        <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer">
+          KunstLaserkatze auf Etsy →
+        </a>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2>Bestellungen & Maßangaben</h2>
+    <p>
+      Bestellungen laufen ausschließlich über den <a href="https://www.etsy.com/de/shop/KunstLaserkatze" target="_blank" rel="noopener noreferrer">Etsy-Shop</a>.
+      Für eine korrekte Fertigung benötige ich die Maße deines Schubladenkorpus –
+      bitte die genauen Angaben beim Checkout im Bestellformular eintragen.
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>Pilot-Tester gesucht:</strong> Du möchtest VanLatch als einer der ersten
+        externen Tester einbauen und ehrliches Feedback geben? Meld dich einfach per E-Mail.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <h2>Anschrift</h2>
+    <p>Philipp Keßler</p>
+    <p>Glashüttenstraße 26<br />77855 Achern<br />Deutschland</p>
+  </div>
+</body>
+</html>
