@@ -3,4 +3,4 @@ Allow: /
 Disallow: /v1.html
 Disallow: /vergleich.html
 
-Sitemap: https://raillock-website.vercel.app/sitemap.xml
+Sitemap: https://vanlatch.vercel.app/sitemap.xml
