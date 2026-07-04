@@ -705,7 +705,7 @@ function RailLockSVG({ locked = true }) {
   const motorColor = locked ? ACCENT : "#333";
 
   const drawerYs = [90, 178, 266, 354];
-  const dH = 72, bwX = 108, bwT = 6, fwX = 276, wT = 4;
+  const dH = 72, bwX = 80, bwT = 6, fwX = 276, wT = 4;
   const cutT = -36, cutB = -5;
   const iL = bwX + bwT, iR = fwX, iT = cutT + wT, iB = dH / 2 - wT;
   const armY = -26, armH = 10, armXS = 68, armXE = iL + 18;
@@ -760,15 +760,15 @@ function RailLockSVG({ locked = true }) {
           )}
           {i === 0 && (
             <g>
-              <line x1={bwX + bwT / 2} y1={y + cutT + (cutB - cutT) / 2} x2={172} y2={y + cutT - 18} stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
-              <text x="175" y={y + cutT - 16} fill="rgba(255,255,255,0.35)" fontSize="8" fontFamily="monospace" letterSpacing="0.5">AUSSCHNITT</text>
+              <line x1={bwX + bwT / 2} y1={y + cutT + (cutB - cutT) / 2} x2={144} y2={y + cutT - 18} stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <text x="147" y={y + cutT - 16} fill="rgba(255,255,255,0.35)" fontSize="8" fontFamily="monospace" letterSpacing="0.5">AUSSCHNITT</text>
             </g>
           )}
           {i === 3 && (
             <g>
-              <line x1={bwX + bwT / 2} y1={y + iB} x2="116" y2={y + iB + 22} stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
-              <text x="118" y={y + iB + 17} fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" letterSpacing="0.4">SCHUBLADEN-</text>
-              <text x="118" y={y + iB + 27} fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" letterSpacing="0.4">RÜCKEN</text>
+              <line x1={bwX + bwT / 2} y1={y + iB} x2="88" y2={y + iB + 22} stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" strokeDasharray="2,2" />
+              <text x="90" y={y + iB + 17} fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" letterSpacing="0.4">SCHUBLADEN-</text>
+              <text x="90" y={y + iB + 27} fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" letterSpacing="0.4">RÜCKEN</text>
             </g>
           )}
           {i === 3 && (
