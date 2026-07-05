@@ -472,7 +472,7 @@ function Nav() {
               <Icon name="lock" size={16} color="#14100B" />
             </div>
             <span className="disp" style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.02em" }}>
-              Rail<span className="grad-text">Lock</span>
+              Van<span className="grad-text">Latch</span>
             </span>
           </div>
 
@@ -530,7 +530,7 @@ function Hero() {
             </h1>
 
             <p className="lead" style={{ marginBottom: 42 }}>
-              RailLock bringt den Komfort einer Auto-Zentralverriegelung in deinen Camper:
+              VanLatch bringt den Komfort einer Auto-Zentralverriegelung in deinen Camper:
               Ein Schalter sichert bis zu fünf Schubladen gleichzeitig – in einer Sekunde
               verriegelt beim Losfahren, mit einem Klick wieder offen am Stellplatz.
             </p>
@@ -632,7 +632,7 @@ function Problem() {
           <div style={{ width: 1, height: 64, background: "linear-gradient(180deg, rgba(255,255,255,0.1), var(--acc))", margin: "0 auto 28px" }} />
           <div className="eyebrow" style={{ justifyContent: "center" }}>Die Lösung</div>
           <div className="disp" style={{ fontSize: "clamp(38px, 5.5vw, 72px)", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1 }}>
-            Das <span className="grad-text">RailLock</span>-System
+            Das <span className="grad-text">VanLatch</span>-System
           </div>
         </div>
       </div>
@@ -660,7 +660,7 @@ function Produkt() {
             <div className="media-frame">
               <img
                 src="/images/Queransicht3.jpg"
-                alt="RailLock im Einbau – Haken und Halterung der Verriegelungsschiene greifen durch den Ausschnitt im Schubladenrücken"
+                alt="VanLatch im Einbau – Haken und Halterung der Verriegelungsschiene greifen durch den Ausschnitt im Schubladenrücken"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
             </div>
@@ -699,7 +699,7 @@ function Produkt() {
 /* ═══════════════════════════════════════════════════════════════════════════
    TECHNISCHE ILLUSTRATION (SVG, animiert)
    ═══════════════════════════════════════════════════════════════════════════ */
-function RailLockSVG({ locked = true }) {
+function VanLatchSVG({ locked = true }) {
   const railOffset = locked ? 10 : -5;
   const hookColor = locked ? "url(#svHook)" : "#3A3A3A";
   const motorColor = locked ? ACCENT : "#333";
@@ -908,7 +908,7 @@ function Funktionsweise() {
           </div>
 
           <div className="sticky-demo rv d2" style={{ position: "sticky", top: 100, display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>
-            <RailLockSVG locked={locked} />
+            <VanLatchSVG locked={locked} />
             <button className={`sw${locked ? " on" : ""}`} onClick={toggle} aria-pressed={locked} aria-label="Verriegelung umschalten">
               <span className="sw-track"><span className="sw-knob" /></span>
               <span className="sw-label">{locked ? "VERRIEGELT" : "ENTRIEGELT"}</span>
@@ -969,7 +969,7 @@ function Features() {
    ═══════════════════════════════════════════════════════════════════════════ */
 function KompatCheck() {
   const questions = [
-    { q: "Sind deine Schubladen übereinander gestapelt?", hint: "RailLock verriegelt vertikal gestapelte Schubladen – nebeneinander liegende sind nicht kompatibel." },
+    { q: "Sind deine Schubladen übereinander gestapelt?", hint: "VanLatch verriegelt vertikal gestapelte Schubladen – nebeneinander liegende sind nicht kompatibel." },
     { q: "Hast du mindestens 3 cm Platz hinter den Schubladenrücken?", hint: "Der Stellmotor braucht diesen Raum zwischen Schubladenrücken und Rückwand." },
     { q: "Ist ein 12-V-Anschluss in der Nähe verfügbar oder verlegbar?", hint: "Das System läuft am Standard-Bordnetz – eine Leitung zum Korpus genügt." },
     { q: "Kommst du an die Rückseite des Schubladenkorpus heran?", hint: "Für Montage und Notfallöffnung sollte die Rückseite erreichbar sein." },
@@ -986,9 +986,9 @@ function KompatCheck() {
       <div className="wrap" style={{ maxWidth: 860 }}>
         <div className="rv" style={{ textAlign: "center", marginBottom: 48 }}>
           <div className="eyebrow" style={{ justifyContent: "center" }}>Der Passt-es-Check</div>
-          <h2 className="h2">Passt RailLock in<br /><span className="grad-text">deinen Ausbau?</span></h2>
+          <h2 className="h2">Passt VanLatch in<br /><span className="grad-text">deinen Ausbau?</span></h2>
           <p className="lead" style={{ margin: "0 auto" }}>
-            Vier ehrliche Fragen – 20 Sekunden. RailLock ist nicht für jeden Aufbau geeignet,
+            Vier ehrliche Fragen – 20 Sekunden. VanLatch ist nicht für jeden Aufbau geeignet,
             und das sagen wir dir lieber vor der Bestellung.
           </p>
         </div>
@@ -1020,7 +1020,7 @@ function KompatCheck() {
             <div className="verdict" style={{ borderColor: "rgba(61,214,140,0.4)", background: "rgba(61,214,140,0.06)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                 <Icon name="check" size={22} color="var(--good)" />
-                <div className="disp" style={{ fontSize: 21, fontWeight: 700, color: "var(--good)" }}>RailLock passt zu deinem Ausbau.</div>
+                <div className="disp" style={{ fontSize: 21, fontWeight: 700, color: "var(--good)" }}>VanLatch passt zu deinem Ausbau.</div>
               </div>
               <p style={{ fontSize: 14, color: "var(--mut)", lineHeight: 1.8, marginBottom: 20 }}>
                 Alle Voraussetzungen sind erfüllt. Miss deinen Schubladenkorpus aus und bestell dein
@@ -1151,7 +1151,7 @@ function Vergleich() {
     { name: "Push-Lock", link: null, features: [false, false, false, true, true, false, false] },
     { name: "Kugelschnapper", link: "https://www.amazon.de/dp/B07JFNP6JY", features: [false, false, false, true, true, false, false] },
     { name: "Magnet-Kindersicherung", link: "https://www.amazon.de/dp/B073C54BCM", features: [false, false, false, false, true, false, false] },
-    { name: "RailLock", link: null, features: [true, true, true, true, true, true, true], highlight: true },
+    { name: "VanLatch", link: null, features: [true, true, true, true, true, true, true], highlight: true },
   ];
   const rows = [
     "Alle Schubladen gleichzeitig sichern",
@@ -1285,7 +1285,7 @@ function Installation() {
 function Galerie() {
   const photos = [
     { src: "/images/schubladen_vorne.jpg", caption: "Eingebaut – vier Schubladen, von außen sauber und unsichtbar gesichert" },
-    { src: "/images/einbau_seitenansicht.jpg", caption: "RailLock im eingebauten Zustand – Seitenansicht" },
+    { src: "/images/einbau_seitenansicht.jpg", caption: "VanLatch im eingebauten Zustand – Seitenansicht" },
     { src: "/images/ausschnitt_innen.jpg", caption: "Von innen – der Haken greift präzise durch den Ausschnitt im Schubladenrücken" },
     { src: "/images/schalter.jpg", caption: "Bedienung – ein Knopfdruck sichert alle Schubladen gleichzeitig" },
     { src: "/images/gallery_haken_detail.jpg", caption: "Hakendetail – der Haken blockiert die Schublade von innen" },
@@ -1340,7 +1340,7 @@ function InAktion() {
         <div style={{ textAlign: "center", marginBottom: 52 }} className="rv">
           <div className="eyebrow" style={{ justifyContent: "center" }}>In Aktion</div>
           <h2 className="h2">Echte Verriegelung.<br /><span className="grad-text">Kein Rendering.</span></h2>
-          <p className="lead" style={{ margin: "0 auto" }}>Demonstration im eingebauten Zustand – so arbeitet RailLock in echt.</p>
+          <p className="lead" style={{ margin: "0 auto" }}>Demonstration im eingebauten Zustand – so arbeitet VanLatch in echt.</p>
         </div>
 
         <div className="media-frame rv d1" style={{ maxWidth: 1000, margin: "0 auto" }}>
@@ -1352,7 +1352,7 @@ function InAktion() {
         <div className="rv d2" style={{ marginTop: 60, textAlign: "center" }}>
           <div className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: "var(--dim)", marginBottom: 24 }}>360°-ANSICHT — ALLE KOMPONENTEN</div>
           <div className="media-frame" style={{ display: "inline-block", maxWidth: 780 }}>
-            <video autoPlay muted loop playsInline aria-label="360°-Rundumansicht des RailLock-Systems: Schiene, Haken, Stellmotor und manueller Schieber" style={{ display: "block", width: "100%", background: "#000" }}>
+            <video autoPlay muted loop playsInline aria-label="360°-Rundumansicht des VanLatch-Systems: Schiene, Haken, Stellmotor und manueller Schieber" style={{ display: "block", width: "100%", background: "#000" }}>
               <source src="/videos/rundumansicht.mp4" type="video/mp4" />
             </video>
           </div>
@@ -1612,7 +1612,7 @@ function Footer() {
                 <Icon name="lock" size={14} color="#14100B" />
               </div>
               <span className="disp" style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.02em" }}>
-                Rail<span className="grad-text">Lock</span>
+                Van<span className="grad-text">Latch</span>
               </span>
             </div>
             <p style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.8, maxWidth: 280, marginBottom: 22 }}>
@@ -1652,7 +1652,7 @@ function Footer() {
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14, paddingTop: 28, borderTop: "1px solid var(--line)" }}>
           <p className="mono" style={{ fontSize: 10, color: "#3E3A34", letterSpacing: "0.1em" }}>
-            © 2026 RAILLOCK · ALLE RECHTE VORBEHALTEN
+            © 2026 VANLATCH · ALLE RECHTE VORBEHALTEN
           </p>
           <p style={{ fontSize: 12, color: "#3E3A34" }}>Entwickelt mit ❤️ für die Vanlife-Community</p>
         </div>

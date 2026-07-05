@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import AppV3 from './AppV3.jsx'
+import AppRaillock from './AppRaillock.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AppV3 />
+    <AppRaillock />
   </StrictMode>,
 )

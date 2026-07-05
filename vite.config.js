@@ -9,7 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         v1: resolve(__dirname, 'v1.html'),
-        v3: resolve(__dirname, 'v3.html'),
+        raillock: resolve(__dirname, 'raillock.html'),
       },
     },
   },

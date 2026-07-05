@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /v1.html
+Disallow: /raillock.html
 Disallow: /vergleich.html
 
 Sitemap: https://vanlatch.vercel.app/sitemap.xml
