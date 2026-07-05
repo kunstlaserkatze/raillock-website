@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 const ACCENT = "#F07818";
 const ETSY_URL = "https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v";
+const ETSY_STL_URL = "https://kunstlaserkatze.etsy.com/de/listing/4532860497/stl-datei-schubladensicherung-camper";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    DESIGN SYSTEM
@@ -1432,7 +1433,7 @@ function Shop() {
               <span style={{ color: "var(--acc)" }}>~30 Std.</span> Druckzeit pro Schiene inkl. Zubehör · Material: PETG
             </div>
             <div style={{ flexGrow: 1 }} />
-            <a className="btn-line" href={ETSY_URL} target="_blank" rel="noopener noreferrer" style={{ width: "100%" }}>
+            <a className="btn-line" href={ETSY_STL_URL} target="_blank" rel="noopener noreferrer" style={{ width: "100%" }}>
               STL-Dateien bestellen <Icon name="arrowR" size={16} />
             </a>
             <p style={{ fontSize: 11.5, color: "var(--dim)", marginTop: 12, textAlign: "center" }}>Maßangabe erforderlich · kein physisches Kit</p>
@@ -1637,7 +1638,7 @@ function Footer() {
           <div>
             <div className="foot-h">Bestellen</div>
             <a className="foot-link" href={ETSY_URL} target="_blank" rel="noopener noreferrer">Fertiges Kit (Etsy)</a>
-            <a className="foot-link" href={ETSY_URL} target="_blank" rel="noopener noreferrer">STL-Dateien (Etsy)</a>
+            <a className="foot-link" href={ETSY_STL_URL} target="_blank" rel="noopener noreferrer">STL-Dateien (Etsy)</a>
             <a className="foot-link" href="/montageanleitung.html" target="_blank" rel="noopener noreferrer">Montageanleitung</a>
           </div>
 
