@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const ACCENT = "#F07818";
 const ETSY_URL = "https://kunstlaserkatze.etsy.com/de/listing/4531181942/zentrale-schubladensicherung-camper-12v";
@@ -1691,6 +1692,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
